@@ -42,7 +42,11 @@ to get the desired effect
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-@include('Admin/allposts')
+
+  <div class="content-wrapper" style="min-height: 902px;">
+  @include('Admin/posts/addnewpost')
+@yield('content')
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
