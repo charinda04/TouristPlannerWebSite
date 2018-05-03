@@ -23,7 +23,7 @@ class CreatePlacesTable extends Migration
             $table->String('photo2');
             $table->integer('admin_id')->unsigned();
 
-            $table->foreign('admin_id')->references('id')->on('admins');
+            // $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();
         });
     }

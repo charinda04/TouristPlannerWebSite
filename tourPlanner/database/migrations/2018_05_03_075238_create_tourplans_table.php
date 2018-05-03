@@ -22,8 +22,8 @@ class CreateTourplansTable extends Migration
             $table->integer('admin_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('admin_id')->references('id')->on('admins');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();
         });
     }

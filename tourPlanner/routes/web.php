@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('Admin.index');
+    return view('Admin.posts.allposts');
 });
 
 Auth::routes();

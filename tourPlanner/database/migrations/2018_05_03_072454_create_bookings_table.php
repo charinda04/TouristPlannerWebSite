@@ -24,8 +24,8 @@ class CreateBookingsTable extends Migration
             $table->integer('property_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('property_id')->references('id')->on('properties');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('property_id')->references('id')->on('properties');
             $table->timestamps();
         });
     }

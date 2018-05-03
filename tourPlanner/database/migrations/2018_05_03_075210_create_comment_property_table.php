@@ -22,8 +22,8 @@ class CreateCommentPropertyTable extends Migration
             $table->String('comment');
             $table->date('date');
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('property_id')->references('id')->on('properties');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('property_id')->references('id')->on('properties');
             $table->timestamps();
         });
     }
