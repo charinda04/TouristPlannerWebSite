@@ -20,7 +20,7 @@ class PlacesController extends Controller
 
 
 
-        return view('index', ['places' => $places]);
+        return view('guest.index', ['places' => $places]);
     }
 
     /**

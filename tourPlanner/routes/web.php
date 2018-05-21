@@ -19,3 +19,11 @@ Auth::routes();
 Route::get('/admin', function () {
     return view('Admin.posts.allposts');
 });
+
+Route::get('/admin/addnewpost', function () {
+    return view('Admin.posts.addnewpost');
+});
+
+Route::get('/admin', function () {
+    return view('Admin.posts.allposts');
+});
