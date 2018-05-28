@@ -17,12 +17,11 @@ class PlacesController extends Controller
     {
         //
         $places = DB::table('places')->get();
-        if($admin == 1){
-            return view('Admin.posts.allposts', ['places' => $places]);
-        }else{
+        
+            
+      
             return view('guest.index', ['places' => $places]);
-        }
-
+      
 
         
     }

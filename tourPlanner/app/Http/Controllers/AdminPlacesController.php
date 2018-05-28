@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 use App\Admin;
 use Illuminate\Http\Request;
@@ -12,9 +14,19 @@ class AdminPlacesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
+    
     public function index()
     {
         //
+
+        $places = DB::table('places')->get();
+        return view('Admin.posts.allposts', ['places' => $places]);
     }
 
     /**
