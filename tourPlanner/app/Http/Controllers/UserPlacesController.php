@@ -1,26 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-use App\Admin;
 use Illuminate\Http\Request;
 
-class AdminsController extends Controller
+class PlacesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __constructor(){
-        
-        $this->middleware('auth:admin');
-    }
-
-    public function index()
+    public function index($admin)
     {
         //
-        return view('Admin.posts.allposts');
+        $places = DB::table('places')->get();
+        if($admin == 1){
+            return view('Admin.posts.allposts', ['places' => $places]);
+        }else{
+            return view('guest.index', ['places' => $places]);
+        }
+
+
+        
     }
 
     /**
@@ -47,10 +51,10 @@ class AdminsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($id)
     {
         //
     }
@@ -58,10 +62,10 @@ class AdminsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
         //
     }
@@ -70,10 +74,10 @@ class AdminsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -81,10 +85,10 @@ class AdminsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
         //
     }

@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'PlacesController@index')->name('home');
+
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/admin', 'AdminsController@index');
 
@@ -28,5 +28,20 @@ Route::get('/admin/addnewpost', function () {
 });
 
 Route::get('/admin', function () {
-    return view('Admin.posts.allposts');
+    
+});
+Route::get('/', 'PlacesController@index')->name('home');
+
+Route::group(['middleware' => ['web','auth']], function(){
+
+    
+    
+    Route::get('/home', function(){
+        if(Auth::user()->admin == 0){
+            return view('home');
+        }else{
+           // return view('Admin.posts.allposts');
+           return ('PlacesController@index(Auth::user()->admin)');
+        }
+    });
 });
