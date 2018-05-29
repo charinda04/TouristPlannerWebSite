@@ -27,30 +27,24 @@ Route::get('/admin/addnewpost', function () {
     return view('Admin.posts.addnewpost');
 });
 
-Route::get('/admin', function () {
-    
-});
-Route::get('/', 'PlacesController@index')->name('home');
 
-// Route::group(['middleware' => ['web','auth']], function(){
+Route::get('/', 'UserPlacesController@index')->name('home');
 
-    
-    
-//     Route::get('/home', function(){
-//         if(Auth::user()->admin == 0){
-//             return view('home');
-//         }else{
-//            // return view('Admin.posts.allposts');
-//            return ('PlacesController@index(Auth::user()->admin)');
-//         }
-//     });
-// });
 
 
 
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', 'AdminPlacesController@index');
+    Route::get('/home', 'Commission\HomeController@index');
+    Route::get('/addnewpost', 'Commission\HomeController@index');
+   
+
+});
+
+Route::group(['prefix' => 'user'], function () {
+
+    Route::get('/', 'UserPlacesController@index');
     Route::get('/home', 'Commission\HomeController@index');
    
 
