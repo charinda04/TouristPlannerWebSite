@@ -38,10 +38,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'AdminPlacesController@index');
     Route::get('/home', 'Commission\HomeController@index');
     Route::get('/viewpost/{id}', 'AdminPlacesController@show');
+    Route::get('/editpost/{id}', 'AdminPlacesController@edit');
     Route::get('/addnewpost', function () {
         return view('Admin.posts.addnewpost');
     });
     Route::post('/addnewpost', 'AdminPlacesController@store');
+    Route::post('/editpost/{id}', 'AdminPlacesController@update');
+    Route::post('/deletepost/{id}', 'AdminPlacesController@destroy');
 
    
 

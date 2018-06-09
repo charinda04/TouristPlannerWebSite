@@ -92,9 +92,11 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Admin $admin,$id)
     {
         //
+        $places = DB::table('places')->get()->where('id',$id);
+        return view('Admin.posts.editpost',['places' => $places]);
     }
 
     /**
@@ -104,9 +106,19 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, Admin $admin,$id)
     {
         //
+        $title = $request->get('title');
+        $description = $request->get('description');
+        $tags = $request->get('tags');
+        $posts = DB::update('update places set title=?, description=?, tags=? where id=?', [$title, $description, $tags,$id]);
+        if($posts){
+            return redirect('admin/');
+        }else{
+            return view('Admin.posts.editpost');
+        }
+
     }
 
     /**
@@ -115,8 +127,10 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin,$id)
     {
         //
+        $posts = DB::delete('delete from places where id=?',[$id]);
+        return redirect('admin/');
     }
 }

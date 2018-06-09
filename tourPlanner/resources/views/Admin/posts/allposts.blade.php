@@ -23,10 +23,10 @@
         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Tags: activate to sort column ascending" style="width: 316px;">
           Tags
         </th>
-        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 240px;">
+        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 200px;">
           Created At
         </th>
-        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 175px;">
+        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 270px;">
           
         </th>
       </tr>
@@ -39,7 +39,14 @@
         <td>{{ $place->description }}</td>
         <td>{{ $place->tags }}</td>
         <td>{{ $place->created_at }}</td>
-        <td><a href="{{ url('admin/viewpost/'.sprintf("%s",$place->id ))}}" class="btn btn-default">View</a>  <a href="#" class="btn btn-default">Edit</a>  <a href="#" class="btn btn-default">Delete</a> </td>
+        <td >
+          <form action="{{ url('admin/deletepost/'.sprintf("%s",$place->id ))}}" method="post">
+            {{ csrf_field() }}
+              <a href="{{ url('admin/viewpost/'.sprintf("%s",$place->id ))}}" class="btn btn-default">View</a>  <a href="{{ url('admin/editpost/'.sprintf("%s",$place->id ))}}" class="btn btn-default">Edit</a> 
+            <button type="submit" class="btn btn-default" >Delete</button>
+          </form>
+          
+         </td>
       </tr>
     @endforeach
     </tbody>
