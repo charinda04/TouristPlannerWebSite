@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Place;
+use Carbon\Carbon;
 
 use App\Admin;
 use Illuminate\Http\Request;
@@ -37,6 +39,7 @@ class AdminPlacesController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -48,6 +51,20 @@ class AdminPlacesController extends Controller
     public function store(Request $request)
     {
         //
+        //$place = new Place();
+
+
+        $title = $request->get('title');
+        $description = $request->get('description');
+        $tags = $request->get('tags');
+        $created_at = Carbon::now();
+        $posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
+        if($posts){
+            return redirect('admin/');
+        }else{
+            return view('Admin.posts.addnewpost');
+        }
+        
     }
 
     /**
@@ -56,9 +73,17 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(Admin $admin,$id)
     {
         //
+        //$id = $request->id;
+        $places = DB::table('places')->get()->where('id',$id);
+        //$places = DB::select('select * from places where id=?',[$id]);
+        //if($places){
+            return view('Admin.posts.viewpost',['places' => $places]);
+       // }
+        
+
     }
 
     /**

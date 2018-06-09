@@ -17,15 +17,15 @@ Auth::routes();
 
 
 
-Route::get('/admin', 'AdminsController@index');
+//Route::get('/admin', 'AdminsController@index');
 
 // Route::get('/admin', function () {
 //     return view('Admin.posts.allposts');
 // });
 
-Route::get('/admin/addnewpost', function () {
-    return view('Admin.posts.addnewpost');
-});
+// Route::get('/admin/addnewpost', function () {
+//     return view('Admin.posts.addnewpost');
+// });
 
 
 Route::get('/', 'UserPlacesController@index')->name('home');
@@ -37,7 +37,12 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', 'AdminPlacesController@index');
     Route::get('/home', 'Commission\HomeController@index');
-    Route::get('/addnewpost', 'Commission\HomeController@index');
+    Route::get('/viewpost/{id}', 'AdminPlacesController@show');
+    Route::get('/addnewpost', function () {
+        return view('Admin.posts.addnewpost');
+    });
+    Route::post('/addnewpost', 'AdminPlacesController@store');
+
    
 
 });
