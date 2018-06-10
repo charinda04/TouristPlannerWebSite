@@ -17,18 +17,19 @@ class CreatePropertiesTable extends Migration
             $table->increments('id');
             $table->String('type');
             $table->String('no_of_persons');
-            $table->date('no_of_beds');
+            $table->String('no_of_beds');
             $table->String('bathrooms');
             $table->String('no');
             $table->String('street');
             $table->String('city');
-            $table->String('zipcode');
-            $table->date('photo1');
-            $table->String('photo2');
+            $table->String('zipcode')->nullable();
+            $table->String('photo1');
+            $table->String('photo2')->nullable();
             $table->String('summery');
             $table->String('title');
-            $table->String('status');
-            $table->String('date');
+            $table->String('status')->nullable()->default(0);
+            $table->String('admin_permission')->nullable()->default(0);
+            $table->String('date')->nullable();
             $table->String('contact_no');
             $table->integer('user_id')->unsigned();
 

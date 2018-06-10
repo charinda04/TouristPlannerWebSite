@@ -20,7 +20,7 @@ class CreatePlacesTable extends Migration
             $table->integer('time')->nullable();
             $table->String('tags');
             $table->String('photo1');
-            $table->String('photo2');
+            $table->String('photo2')->nullable();
             $table->integer('admin_id')->unsigned();
 
             // $table->foreign('admin_id')->references('id')->on('admins');

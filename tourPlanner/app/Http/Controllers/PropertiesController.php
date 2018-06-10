@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PropertiesController extends Controller
 {
@@ -43,16 +44,16 @@ class PropertiesController extends Controller
     public function store(Request $request)
     {
         //
-        $type = $request->get('title');
-        $person = $request->get('description');
-        $bed = $request->get('tags');
-        $bathroom = $request->get('tags');
-        $no = $request->get('tags');
-        $street= $request->get('tags');
-        $city= $request->get('tags');
-        $contact= $request->get('tags');
-        $title= $request->get('tags');
-        $summary= $request->get('tags');
+        $type = $request->get('type');
+        $person = $request->get('person');
+        $bed = $request->get('bed');
+        $bathroom = $request->get('bathroom');
+        $no = $request->get('no');
+        $street= $request->get('street');
+        $city= $request->get('city');
+        $contact= $request->get('contact');
+        $title= $request->get('title');
+        $summary= $request->get('description');
 
 
         if($request->hasFile('image1')){
@@ -63,7 +64,8 @@ class PropertiesController extends Controller
 
         //$created_at = Carbon::now();
         //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
-        $posts = DB::insert('insert into places (title, description, tags,photo1) values (?, ?, ?,?)', [$title, $description, $tags,$fileName]);
+        $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no) values (?, ?, ?,?,?,?,?,?,?,?,?)', 
+        [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact]);
         if($posts){
             return redirect('admin/');
         }else{

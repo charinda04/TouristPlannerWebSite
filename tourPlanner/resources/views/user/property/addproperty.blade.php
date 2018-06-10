@@ -5,7 +5,7 @@
 <div class="container">
     <br>
 
-        <form role="form" method="POST" action="{{url('/user/addrentplace')}}">
+        <form role="form" method="POST" action="{{url('/user/addrentplace')}}" enctype="multipart/form-data">
             {{ csrf_field() }}
 
             <br>
@@ -16,14 +16,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Property Type</label>
-                        <input id="title" type="text" class="form-control" name="title" required>
+                        <input id="title" type="text" class="form-control" name="type" required>
                     </div>
                 </div> 
 
                 <div class="col-md-6">
                         <div class="form-group">
                             <label>No of persons</label>
-                            <input id="title" type="text" class="form-control" name="title" required>
+                            <input id="title" type="text" class="form-control" name="person" required>
                         </div>
                     </div> 
             </div>
@@ -34,14 +34,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>No of beds</label>
-                                <input id="title" type="text" class="form-control" name="title" required>
+                                <input id="title" type="text" class="form-control" name="bed" required>
                             </div>
                         </div> 
 
                         <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No of bathrooms</label>
-                                    <input id="title" type="text" class="form-control" name="title" required>
+                                    <input id="title" type="text" class="form-control" name="bathroom" required>
                                 </div>
                             </div> 
                     </div>
@@ -56,7 +56,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>No</label>
-                                        <input id="title" type="text" class="form-control" name="title" required>
+                                        <input id="title" type="text" class="form-control" name="no" required>
                                     </div>
                                 </div> 
 
@@ -64,7 +64,7 @@
                                 <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Street/ Road</label>
-                                            <input id="title" type="text" class="form-control" name="title" required>
+                                            <input id="title" type="text" class="form-control" name="street" required>
                                         </div>
                                     </div> 
                             </div>
@@ -74,7 +74,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input id="title" type="text" class="form-control" name="title" required>
+                                                <input id="title" type="text" class="form-control" name="city" required>
                                             </div>
                                         </div> 
 
@@ -82,7 +82,7 @@
                                         <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Contact No</label>
-                                                    <input id="title" type="text" class="form-control" name="title" required>
+                                                    <input id="title" type="text" class="form-control" name="contact" required>
                                                 </div>
                                             </div> 
                                     </div>
