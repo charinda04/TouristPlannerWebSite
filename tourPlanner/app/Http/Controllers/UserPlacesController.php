@@ -21,7 +21,7 @@ class UserPlacesController extends Controller
         
             
       
-            return view('user.index', ['places' => $places]);
+            return view('user.home', ['places' => $places]);
     }
 
     /**

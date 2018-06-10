@@ -28,7 +28,7 @@ Auth::routes();
 // });
 
 
-Route::get('/', 'UserPlacesController@index')->name('home');
+Route::get('/', 'guest@index')->name('home');
 
 
 
@@ -53,7 +53,9 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('/', 'UserPlacesController@index');
+    
     Route::get('/home', 'Commission\HomeController@index');
    
-
+    Route::post('/rentplace', 'PropertiesController@index');
+    Route::post('/addrentplace', 'PropertiesController@store');
 });

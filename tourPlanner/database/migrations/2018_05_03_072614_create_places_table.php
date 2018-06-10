@@ -17,7 +17,7 @@ class CreatePlacesTable extends Migration
             $table->increments('id');
             $table->String('title');
             $table->String('description');
-            $table->date('time');
+            $table->integer('time')->nullable();
             $table->String('tags');
             $table->String('photo1');
             $table->String('photo2');

@@ -1,26 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
-class PropertiesController extends Controller
+class guest extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-         $this->middleware('user');
-    }
-
     public function index()
     {
         //
-        return view('user.property.addproperty');
+        $places = DB::table('places')->get();
+        
+            
+      
+            return view('guest.index', ['places' => $places]);
     }
 
     /**
@@ -31,7 +30,6 @@ class PropertiesController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -43,32 +41,6 @@ class PropertiesController extends Controller
     public function store(Request $request)
     {
         //
-        $type = $request->get('title');
-        $person = $request->get('description');
-        $bed = $request->get('tags');
-        $bathroom = $request->get('tags');
-        $no = $request->get('tags');
-        $street= $request->get('tags');
-        $city= $request->get('tags');
-        $contact= $request->get('tags');
-        $title= $request->get('tags');
-        $summary= $request->get('tags');
-
-
-        if($request->hasFile('image1')){
-            $file = $request->file('image1');
-            $file->move('properties', $file->getClientOriginalName());
-            $fileName = $file->getClientOriginalName();
-        }
-
-        //$created_at = Carbon::now();
-        //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
-        $posts = DB::insert('insert into places (title, description, tags,photo1) values (?, ?, ?,?)', [$title, $description, $tags,$fileName]);
-        if($posts){
-            return redirect('admin/');
-        }else{
-            return view('Admin.posts.addnewpost');
-        }
     }
 
     /**

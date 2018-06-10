@@ -57,8 +57,17 @@ class AdminPlacesController extends Controller
         $title = $request->get('title');
         $description = $request->get('description');
         $tags = $request->get('tags');
-        $created_at = Carbon::now();
-        $posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
+
+
+        if($request->hasFile('image1')){
+            $file = $request->file('image1');
+            $file->move('locations', $file->getClientOriginalName());
+            $fileName = $file->getClientOriginalName();
+        }
+
+        //$created_at = Carbon::now();
+        //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
+        $posts = DB::insert('insert into places (title, description, tags,photo1) values (?, ?, ?,?)', [$title, $description, $tags,$fileName]);
         if($posts){
             return redirect('admin/');
         }else{
