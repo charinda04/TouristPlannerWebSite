@@ -61,13 +61,15 @@ class AdminPlacesController extends Controller
 
         if($request->hasFile('image1')){
             $file = $request->file('image1');
-            $file->move('locations', $file->getClientOriginalName());
             $fileName = $file->getClientOriginalName();
+            $fileName = time().$fileName;
+            $file->move('locations', $fileName);
+            
         }
 
-        //$created_at = Carbon::now();
+        $created_at = Carbon::now();
         //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
-        $posts = DB::insert('insert into places (title, description, tags,photo1) values (?, ?, ?,?)', [$title, $description, $tags,$fileName]);
+        $posts = DB::insert('insert into places (title, description, tags,photo1, created_at) values (?, ?, ?,?,?)', [$title, $description, $tags,$fileName,$created_at]);
         if($posts){
             return redirect('admin/');
         }else{
@@ -141,5 +143,11 @@ class AdminPlacesController extends Controller
         //
         $posts = DB::delete('delete from places where id=?',[$id]);
         return redirect('admin/');
+    }
+
+    public function addNew()
+    {
+        //
+        return view('Admin.posts.addnewpost');
     }
 }

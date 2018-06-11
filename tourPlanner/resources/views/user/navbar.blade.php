@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="{{url('/user')}}">Tour Planner Sri Lanka</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,6 +10,33 @@
         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
     @else
+
+    <li class="nav-item dropdown">
+      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          Settings <span class="caret"></span>
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{url('/user/properties')}}">
+              {{ __('Properties') }}
+          </a>
+
+            <a class="dropdown-item" href="{{url('/user/properties')}}">
+                {{ __('Tour Plans') }}
+            </a>
+
+
+              <a class="dropdown-item" href="{{url('/user/properties')}}">
+                  {{ __('Bookings') }}
+              </a>
+
+         
+
+          
+      </div>
+  </li>
+
+
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -27,6 +54,8 @@
                 </form>
             </div>
         </li>
+
+        
     @endguest
 
 

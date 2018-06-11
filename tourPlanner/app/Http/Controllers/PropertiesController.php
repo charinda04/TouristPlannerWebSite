@@ -58,8 +58,10 @@ class PropertiesController extends Controller
 
         if($request->hasFile('image1')){
             $file = $request->file('image1');
-            $file->move('properties', $file->getClientOriginalName());
             $fileName = $file->getClientOriginalName();
+            $fileName = time().$fileName;
+            $file->move('properties', $fileName);
+            
         }
 
         //$created_at = Carbon::now();
@@ -67,7 +69,7 @@ class PropertiesController extends Controller
         $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no) values (?, ?, ?,?,?,?,?,?,?,?,?)', 
         [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact]);
         if($posts){
-            return redirect('admin/');
+            return redirect('user/properties');
         }else{
             return view('Admin.posts.addnewpost');
         }
@@ -79,9 +81,11 @@ class PropertiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $properties = DB::table('properties')->get();
+        return view('user.property.allproperties', ['properties' => $properties]);
     }
 
     /**
@@ -93,6 +97,8 @@ class PropertiesController extends Controller
     public function edit($id)
     {
         //
+        $properties = DB::table('properties')->get()->where('id',$id);
+        return view('user.property.editproperty',['properties' => $properties]);
     }
 
     /**
@@ -105,6 +111,28 @@ class PropertiesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $type = $request->get('type');
+        $person = $request->get('person');
+        $bed = $request->get('bed');
+        $bathroom = $request->get('bathroom');
+        $no = $request->get('no');
+        $street= $request->get('street');
+        $city= $request->get('city');
+        $contact= $request->get('contact');
+        $title= $request->get('title');
+        $summary= $request->get('description');
+        
+
+        $posts = DB::update('update properties set type=?, no_of_persons=?, no_of_beds=?, bathrooms=?, no=?, street=?, city=?, summery=?, title=?, contact_no=? where id=?', 
+        [$type, $person, $bed, $bathroom, $no, $street, $city, $contact, $title, $summary,$id]);
+
+        if($posts){
+            return redirect('user/properties');
+        }else{
+            return view('Admin.posts.editpost');
+        }
+
     }
 
     /**
@@ -116,5 +144,14 @@ class PropertiesController extends Controller
     public function destroy($id)
     {
         //
+        $posts = DB::delete('delete from properties where id=?',[$id]);
+        return redirect('user/properties');
+    }
+
+    public function view($id)
+    {
+        //
+        $properties = DB::table('properties')->get()->where('id',$id);
+        return view('user.property.viewproperty',['properties' => $properties]);
     }
 }

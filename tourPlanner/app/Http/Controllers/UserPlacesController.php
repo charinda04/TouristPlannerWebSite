@@ -51,9 +51,10 @@ class UserPlacesController extends Controller
      * @param  \App\user  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(user $user)
+    public function show(user $user, $id)
     {
         //
+        
     }
 
     /**
@@ -65,6 +66,7 @@ class UserPlacesController extends Controller
     public function edit(user $user)
     {
         //
+      
     }
 
     /**

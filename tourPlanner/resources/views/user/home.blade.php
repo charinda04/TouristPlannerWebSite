@@ -38,23 +38,26 @@
           <div class="carousel-inner" role="listbox">
             <!-- Slide One - Set the background image for this slide in the line below -->
             <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+              <img class="d-block w-100" src="{{ asset('carousel/1.jpg') }}" alt="First slide">
               <div class="carousel-caption d-none d-md-block">
-                <h3>First Slide</h3>
-                <p>This is a description for the first slide.</p>
+                {{-- <h3>First Slide</h3>
+                <p>This is a description for the first slide.</p> --}}
               </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+              <img class="d-block w-100" src="{{ asset('carousel/2.jpg') }}" alt="First slide">
               <div class="carousel-caption d-none d-md-block">
-                <h3>Second Slide</h3>
-                <p>This is a description for the second slide.</p>
+                {{-- <h3>Second Slide</h3>
+                <p>This is a description for the second slide.</p> --}}
               </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+              <img class="d-block w-100" src="{{ asset('carousel/3.jpg') }}" alt="First slide">
               <div class="carousel-caption d-none d-md-block">
-                <h3>Third Slide</h3>
-                <p>This is a description for the third slide.</p>
+                {{-- <h3>Third Slide</h3>
+                <p>This is a description for the third slide.</p> --}}
               </div>
             </div>
           </div>
@@ -191,59 +194,123 @@
           </div>
           <div class="col-lg-5 mb-5">
             <div class="card h-100">
-              <h4 class="card-header">Card Title</h4>
+              <h4 class="card-header">Create Tour Planner</h4>
               <div class="card-body">
                   <form role="form" method="POST" action="{{url('/admin/addnewpost')}}">
                     {{ csrf_field() }}
                 
                     <div class="row">
-                        <div class="col-md-10">
-                            <div class="form-group">
-                                <label>Title</label>
-                                <input id="title" type="text" class="form-control" name="title" required>
+                                <div class="col-md-4">
+                                <label>Start City</label>
+                              </div>
+                              <div class="col-md-8">
+                              <input id="title" type="text" class="form-control" name="title" required>
                             </div>
-                        </div>
-                        
                     </div>
-                 
+                    <br>
                     <div class="row">
-                        <div class="col-md-10">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" rows="3" placeholder="Enter Here" autocomplete="off"  required></textarea>
-                            </div>
-                        </div>
-                        
+                        <div class="col-md-4">
+                        <label>Destination</label>
+                      </div>
+                      <div class="col-md-8">
+                      <input id="title" type="text" class="form-control" name="title" required>
                     </div>
-                    <button type="button" class="btn btn-default">Add Photo 1</button><button type="button" class="btn btn-default">Add Photo 2</button>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                <label>No of people</label>
+              </div>
+              <div class="col-md-8">
+              <input id="title" type="text" class="form-control" name="title" required>
+            </div>
+    </div>
+                 <br>
+                <div class="row">
+                  
+                     
+                          
+
+                          <!-- Date range -->
+
+                         
+                              <div class="col-md-4">
+                            <label>Date range:</label>
+                          </div>
+                          <div class="col-md-8">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="fa fa-calendar"></i>
+                                </span>
+                              </div>
+                              <input type="text" class="form-control float-right" id="reservation">
+                            </div>
+                            <!-- /.input group -->
+                          </div>
+                          <!-- /.form group -->
+          
+                
+                  
+                  
+              </div>
+              
+                    
+                   <br>
                     <div class="row">
                         <div class="col-md-10">
                             <div class="form-group">
                                 <label>Tags</label>
-                                <textarea name="tags" class="form-control" rows="3" placeholder="Enter Here" autocomplete="off"></textarea>
+                                <br>
+                                <label class="checkbox-inline"><input type="checkbox" value="">culture</label>
+<label class="checkbox-inline"><input type="checkbox" value="">beaches</label>
+<label class="checkbox-inline"><input type="checkbox" value="">historic sites</label>
+<label class="checkbox-inline"><input type="checkbox" value="">beaches</label>
+<label class="checkbox-inline"><input type="checkbox" value="">wildlife</label>
+<label class="checkbox-inline"><input type="checkbox" value="">museums</label>
+
+
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-10">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-default">Cancel</button>
+                         
                         </div>
                     </div>
                 
                     </form>
               </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Learn More</a>
-              </div>
+              
             </div>
           </div>
         </div>
         <!-- /.row -->
+
+        <hr><br>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control">
+          <span class="input-group-append">
+            <button type="button" class="btn btn-info btn-flat">Search!</button>
+          </span>
+        </div>
+        <br>
+        <hr>
   
         <!-- Portfolio Section -->
-        <h2>Portfolio Heading</h2>
-  
+        <br>
+        <h2>Most beautiful places to see in Sri Lanka</h2>
+        <br>
+
+
+       
+
+
+
+
+
         <div class="row">
           @foreach($places as $key => $place)
           <div class="col-lg-4 col-sm-6 portfolio-item">
@@ -254,7 +321,7 @@
                 <h4 class="card-title">
                   <a href="#">{{$place->title}}</a>
                 </h4>
-                <p class="card-text">{{$place->description}}</p>
+                <p class="demo2">{{$place->description}}</p>
               </div>
             </div>
           </div>
