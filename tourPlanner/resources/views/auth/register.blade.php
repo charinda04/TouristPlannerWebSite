@@ -39,6 +39,165 @@
                             </div>
                         </div>
 
+
+                            <div class="form-group row">
+                                    <label class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+                                    <div class="col-md-6">
+                                    <select id="country" name="country" class="form-control select2" style="width: 100%;"  required>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Algeria">Algeria</option>
+                                            <option value="Andorra">Andorra</option>
+                                            <option value="Angola">Angola</option>
+                                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                            <option value="Argentina">Argentina</option>
+                                            <option value="Armenia">Armenia</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Austria">Austria</option>
+                                            <option value="Azerbaijan">Azerbaijan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                    </select>
+                                </div>
+                                </div>
+                                  <script>
+                                        $(function () {
+                                            $("select").select2();
+                                        });
+                                
+                                        $(document).ready(function() {
+                                            $(".js-example-basic-multiple").select2();
+                                        });
+                                  </script>
+                                  
+                                
+
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

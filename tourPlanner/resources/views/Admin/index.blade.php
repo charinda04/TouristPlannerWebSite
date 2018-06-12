@@ -18,6 +18,8 @@
   {{-- <link rel="stylesheet" href="{{ asset('dist/css/custom.css') }}"> --}}
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -82,5 +84,19 @@ to get the desired effect
 <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <script src="{{ asset('dist/js/pages/dashboard3.js') }}"></script>
+
+{{-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> --}}
+<script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+      $('.demo2').collapser({ 
+        mode: 'words',
+        truncate: 10,
+        
+      });
+    });
+</script>
+
 </body>
 </html>

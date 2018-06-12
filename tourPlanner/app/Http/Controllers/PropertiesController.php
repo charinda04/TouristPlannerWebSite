@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Auth;
 
 class PropertiesController extends Controller
 {
@@ -11,9 +14,16 @@ class PropertiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+         $this->middleware('user');
+    }
+
     public function index()
     {
         //
+        return view('user.property.addproperty');
     }
 
     /**
@@ -24,6 +34,7 @@ class PropertiesController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -35,6 +46,37 @@ class PropertiesController extends Controller
     public function store(Request $request)
     {
         //
+        $user_id = Auth::user()->id;
+        $type = $request->get('type');
+        $person = $request->get('person');
+        $bed = $request->get('bed');
+        $bathroom = $request->get('bathroom');
+        $no = $request->get('no');
+        $street= $request->get('street');
+        $city= $request->get('city');
+        $contact= $request->get('contact');
+        $title= $request->get('title');
+        $summary= $request->get('description');
+        $created_at = Carbon::now();
+
+
+        if($request->hasFile('image1')){
+            $file = $request->file('image1');
+            $fileName = $file->getClientOriginalName();
+            $fileName = time().$fileName;
+            $file->move('properties', $fileName);
+            
+        }
+
+        //$created_at = Carbon::now();
+        //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
+        $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no, created_at,user_id) values (?, ?, ?,?,?,?,?,?,?,?,?,?,?)', 
+        [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact, $created_at,$user_id]);
+        if($posts){
+            return redirect('user/properties');
+        }else{
+            return view('Admin.posts.addnewpost');
+        }
     }
 
     /**
@@ -43,9 +85,12 @@ class PropertiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $id = Auth::user()->id;
+        $properties = DB::table('properties')->get()->where('user_id',$id);
+        return view('user.property.allproperties', ['properties' => $properties]);
     }
 
     /**
@@ -57,6 +102,8 @@ class PropertiesController extends Controller
     public function edit($id)
     {
         //
+        $properties = DB::table('properties')->get()->where('id',$id);
+        return view('user.property.editproperty',['properties' => $properties]);
     }
 
     /**
@@ -69,6 +116,28 @@ class PropertiesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $type = $request->get('type');
+        $person = $request->get('person');
+        $bed = $request->get('bed');
+        $bathroom = $request->get('bathroom');
+        $no = $request->get('no');
+        $street= $request->get('street');
+        $city= $request->get('city');
+        $contact= $request->get('contact');
+        $title= $request->get('title');
+        $summary= $request->get('description');
+        
+
+        $posts = DB::update('update properties set type=?, no_of_persons=?, no_of_beds=?, bathrooms=?, no=?, street=?, city=?, summery=?, title=?, contact_no=? where id=?', 
+        [$type, $person, $bed, $bathroom, $no, $street, $city, $contact, $title, $summary,$id]);
+
+        if($posts){
+            return redirect('user/properties');
+        }else{
+            return view('Admin.posts.editpost');
+        }
+
     }
 
     /**
@@ -80,5 +149,20 @@ class PropertiesController extends Controller
     public function destroy($id)
     {
         //
+        $posts = DB::delete('delete from properties where id=?',[$id]);
+        return redirect('user/properties');
+    }
+
+    public function view($id)
+    {
+        //
+
+        $properties = DB::table('properties')->get()->where('id',$id);
+        $comments = DB::table('comment_property')
+            ->join('users', 'comment_property.user_id', '=', 'users.id' )
+            ->select('comment_property.*', 'users.name')
+            ->get()
+            ->where('property_id',$id);
+        return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments]);
     }
 }
