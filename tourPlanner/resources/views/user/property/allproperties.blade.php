@@ -37,7 +37,7 @@
           <td class="sorting_1">{{ $property->title }}</td>
           <td class="demo2" >{{ $property->summery }}</td>
           <td>{{ $property->type }}</td>
-          <td></td>
+          <td>{{ $property->created_at }}</td>
           <td >
             <form action="{{ url('user/deleteproperty/'.sprintf("%s",$property->id ))}}" method="post">
                 {{ csrf_field() }}

@@ -28,7 +28,23 @@
         </div>
         
     </div>
-    <button type="button" class="btn btn-default">Add Photo 1</button><button type="button" class="btn btn-default">Add Photo 2</button>
+    <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Current image</label>
+                    <img class="img-fluid rounded" src="{{ asset('locations/'.sprintf("%s",$place->photo1 )) }}" alt="">  
+                </div>
+            </div>
+        </div>
+
+<div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Image 1</label>
+                <input id="image1" type="file" class="form-control" name="image1" >
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-10">
             <div class="form-group">

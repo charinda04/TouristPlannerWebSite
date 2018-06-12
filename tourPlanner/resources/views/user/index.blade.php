@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Tour Planner</title>
+  <link rel="icon" type="image/png" href="{{ asset('icons/1.png') }}" />>
+
   <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 

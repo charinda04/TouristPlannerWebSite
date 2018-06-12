@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                         <div class="form-group">
                             <label>No of persons</label>
-                            <input id="title" type="text" class="form-control" name="person" required>
+                            <input id="title" type="text" class="form-control" name="person" value="{{ $request->no_people }}" required>
                         </div>
                     </div> 
             </div>
@@ -74,7 +74,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input id="title" type="text" class="form-control" name="city" required>
+                                                <input id="title" type="text" class="form-control" name="city" value="{{ $request->city }}" required>
                                             </div>
                                         </div> 
 
@@ -113,6 +113,17 @@
                 </div>
                 
             </div>
+
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Rent per day</label>
+                            <input id="rent" type="text" class="form-control" name="title" required>
+                        </div>
+                    </div> 
+                </div>
+
+            
             <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">

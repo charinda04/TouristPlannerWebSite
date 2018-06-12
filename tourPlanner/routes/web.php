@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/addnewpost', 'AdminPlacesController@store');
     Route::post('/editpost/{id}', 'AdminPlacesController@update');
     Route::post('/deletepost/{id}', 'AdminPlacesController@destroy');
+    Route::post('/locationcomment/{id}', 'AdminPlacesController@addcomment');
 
    
 

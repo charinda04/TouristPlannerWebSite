@@ -111,13 +111,33 @@
                         <textarea name="description" class="form-control" rows="3" placeholder="Enter Here" autocomplete="off"  required>{{ $property->summery }}</textarea>
                     </div>
                 </div>
-                
+
             </div>
+
+
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Rent per day</label>
+                            <input id="rent" type="text" class="form-control" name="rent" value="{{ $property->rent }}" required>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Current image</label>
+                                <img class="img-fluid rounded" src="{{ asset('properties/'.sprintf("%s",$property->photo1 )) }}" alt="">  
+                            </div>
+                        </div>
+                    </div>
+
             <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Image 1</label>
-                            <input id="image1" type="file" class="form-control" name="image1" required>
+                            <input id="image1" type="file" class="form-control" name="image1" >
                         </div>
                     </div>
                 </div>
