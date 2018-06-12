@@ -19,7 +19,7 @@ class CreateCommentPropertyTable extends Migration
             $table->integer('property_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned();
             $table->String('rating');
-            $table->String('comment');
+            $table->text('comment');
             $table->date('date');
 
             // $table->foreign('user_id')->references('id')->on('users');

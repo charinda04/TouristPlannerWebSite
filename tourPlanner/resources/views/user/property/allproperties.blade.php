@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
        
-        <a href="{{ url('admin/addnewpost') }}" class="btn btn-info">Add Location</a>
+        <a href="{{url('/user/rentplace')}}" class="btn btn-info">Add Property</a>
     </div>
       
       <br>
@@ -35,7 +35,7 @@
         @foreach($properties as $property)
         <tr role="row" class="odd">
           <td class="sorting_1">{{ $property->title }}</td>
-          <td>{{ $property->summery }}</td>
+          <td class="demo2" >{{ $property->summery }}</td>
           <td>{{ $property->type }}</td>
           <td></td>
           <td >

@@ -76,7 +76,7 @@
       <!-- Page Content -->
       <div class="container">
   
-        <h1 class="my-4">Welcome to Modern Business user</h1>
+        <h1 class="my-4">The new way to plan your next trip</h1>
   
         <!-- Marketing Icons Section -->
         <div class="row">
@@ -84,18 +84,70 @@
             <div class="card h-100">
                 <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#menu1">Search  Accomodation</a>
+          </li>
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home">Rent your property</a>
+        <a class="nav-link" data-toggle="tab" href="#home">Rent your property</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#menu1">Search  Accomodation</a>
-      </li>
+      
       
     </ul>
   
     <!-- Tab panes -->
     <div class="tab-content">
-      <div id="home" class="container tab-pane active"><br>
+        <div id="menu1" class="container tab-pane active"><br>
+          <form role="form" method="POST" action="{{url('/admin/addnewpost')}}">
+            {{ csrf_field() }}
+        
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input id="city" type="text" class="form-control" name="city" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>Check in date</label>
+                        <input id="no_people" type="text" class="form-control" name="no_people" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>Check out date</label>
+                        <input id="no_people" type="text" class="form-control" name="no_people" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>No of People</label>
+                        <input id="no_people" type="text" class="form-control" name="no_people" required>
+                    </div>
+                </div>
+            </div>
+         
+            
+           
+            
+            <div class="row">
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                   
+                </div>
+            </div>
+        
+            </form>
+        </div>
+
+
+      <div id="home" class="container tab-pane fade"><br>
         <form role="form" method="POST" action="{{url('/user/rentplace')}}">
           {{ csrf_field() }}
       
@@ -125,55 +177,7 @@
       
           </form>
       </div>
-      <div id="menu1" class="container tab-pane fade"><br>
-        <form role="form" method="POST" action="{{url('/admin/addnewpost')}}">
-          {{ csrf_field() }}
       
-          <div class="row">
-              <div class="col-md-10">
-                  <div class="form-group">
-                      <label>City</label>
-                      <input id="city" type="text" class="form-control" name="city" required>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-10">
-                  <div class="form-group">
-                      <label>Check in date</label>
-                      <input id="no_people" type="text" class="form-control" name="no_people" required>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-10">
-                  <div class="form-group">
-                      <label>Check out date</label>
-                      <input id="no_people" type="text" class="form-control" name="no_people" required>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-10">
-                  <div class="form-group">
-                      <label>No of People</label>
-                      <input id="no_people" type="text" class="form-control" name="no_people" required>
-                  </div>
-              </div>
-          </div>
-       
-          
-         
-          
-          <div class="row">
-              <div class="col-md-10">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                 
-              </div>
-          </div>
-      
-          </form>
-      </div>
       <div id="menu2" class="container tab-pane fade"><br>
         <h3>Menu 2</h3>
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
@@ -315,11 +319,11 @@
           @foreach($places as $key => $place)
           <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ asset('locations/'.sprintf("%s",$place->photo1 )) }}" alt=""></a>
+              <a href="{{ url('user/viewlocation/'.sprintf("%s",$place->id ))}}"><img class="card-img-top" src="{{ asset('locations/'.sprintf("%s",$place->photo1 )) }}" alt=""></a>
               {{--  700x400  --}}
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{$place->title}}</a>
+                  <a href="{{ url('user/viewlocation/'.sprintf("%s",$place->id ))}}">{{$place->title}}</a>
                 </h4>
                 <p class="demo2">{{$place->description}}</p>
               </div>

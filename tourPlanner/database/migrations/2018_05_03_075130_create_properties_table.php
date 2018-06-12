@@ -25,7 +25,7 @@ class CreatePropertiesTable extends Migration
             $table->String('zipcode')->nullable();
             $table->String('photo1');
             $table->String('photo2')->nullable();
-            $table->String('summery');
+            $table->text('summery');
             $table->String('title');
             $table->String('status')->nullable()->default(0);
             $table->String('admin_permission')->nullable()->default(0);

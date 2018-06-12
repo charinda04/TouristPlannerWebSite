@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Auth;
 
 class PropertiesController extends Controller
 {
@@ -44,6 +46,7 @@ class PropertiesController extends Controller
     public function store(Request $request)
     {
         //
+        $user_id = Auth::user()->id;
         $type = $request->get('type');
         $person = $request->get('person');
         $bed = $request->get('bed');
@@ -54,6 +57,7 @@ class PropertiesController extends Controller
         $contact= $request->get('contact');
         $title= $request->get('title');
         $summary= $request->get('description');
+        $created_at = Carbon::now();
 
 
         if($request->hasFile('image1')){
@@ -66,8 +70,8 @@ class PropertiesController extends Controller
 
         //$created_at = Carbon::now();
         //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
-        $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no) values (?, ?, ?,?,?,?,?,?,?,?,?)', 
-        [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact]);
+        $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no, created_at,user_id) values (?, ?, ?,?,?,?,?,?,?,?,?,?,?)', 
+        [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact, $created_at,$user_id]);
         if($posts){
             return redirect('user/properties');
         }else{
@@ -84,7 +88,8 @@ class PropertiesController extends Controller
     public function show()
     {
         //
-        $properties = DB::table('properties')->get();
+        $id = Auth::user()->id;
+        $properties = DB::table('properties')->get()->where('user_id',$id);
         return view('user.property.allproperties', ['properties' => $properties]);
     }
 
@@ -151,7 +156,13 @@ class PropertiesController extends Controller
     public function view($id)
     {
         //
+
         $properties = DB::table('properties')->get()->where('id',$id);
-        return view('user.property.viewproperty',['properties' => $properties]);
+        $comments = DB::table('comment_property')
+            ->join('users', 'comment_property.user_id', '=', 'users.id' )
+            ->select('comment_property.*', 'users.name')
+            ->get()
+            ->where('property_id',$id);
+        return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments]);
     }
 }

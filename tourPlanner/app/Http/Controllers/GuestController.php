@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Http\Request;
 
-class guest extends Controller
+class GuestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,7 @@ class guest extends Controller
     {
         //
         $places = DB::table('places')->get();
-        
-            
-      
-            return view('guest.index', ['places' => $places]);
+        return view('user.home', ['places' => $places]);
     }
 
     /**

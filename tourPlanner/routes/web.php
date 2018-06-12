@@ -28,7 +28,7 @@ Auth::routes();
 // });
 
 
-Route::get('/', 'UserPlacesController@index')->name('home');
+Route::get('/', 'GuestController@index')->name('home');
 
 
 
@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/viewpost/{id}', 'AdminPlacesController@show');
     Route::get('/editpost/{id}', 'AdminPlacesController@edit');
     Route::get('/addnewpost', 'AdminPlacesController@addNew');
+
     Route::post('/addnewpost', 'AdminPlacesController@store');
     Route::post('/editpost/{id}', 'AdminPlacesController@update');
     Route::post('/deletepost/{id}', 'AdminPlacesController@destroy');
@@ -51,7 +52,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('/', 'UserPlacesController@index');
-    
+    Route::get('/viewlocation/{id}', 'UserPlacesController@view');
+    Route::get('/rentplace', 'PropertiesController@index');
     Route::get('/properties', 'PropertiesController@show');
     Route::get('/viewproperty/{id}', 'PropertiesController@view');
     Route::get('/editproperty/{id}', 'PropertiesController@edit');
@@ -60,4 +62,6 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/addrentplace', 'PropertiesController@store');
     Route::post('/editproperty/{id}', 'PropertiesController@update');
     Route::post('/deleteproperty/{id}', 'PropertiesController@destroy');
+    Route::post('/locationcomment/{id}', 'UserPlacesController@store');
+    Route::post('/propertycomment/{id}', 'UserPropertiesController@store');
 });
