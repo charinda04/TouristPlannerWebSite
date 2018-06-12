@@ -5,7 +5,7 @@
 
 <div class="box-body">
     <div class="container">
-    <form role="form" method="POST" action="{{url('/admin/addnewpost')}}">
+    <form role="form" method="POST" action="{{url('/admin/addnewpost')}}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <div class="row">
@@ -15,7 +15,6 @@
                 <input id="title" type="text" class="form-control" name="title" required>
             </div>
         </div>
-        
     </div>
  
     <div class="row">
@@ -27,7 +26,26 @@
         </div>
         
     </div>
-    <button type="button" class="btn btn-default">Add Photo 1</button><button type="button" class="btn btn-default">Add Photo 2</button>
+    
+    <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label>Image 1</label>
+                    <input id="image1" type="file" class="form-control" name="image1" required>
+                </div>
+            </div>
+        </div>
+
+        {{--  <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>Image 2</label>
+                        <input id="image2" type="file" class="form-control" name="image2" required>
+                    </div>
+                </div>
+            </div>  --}}
+
+
     <div class="row">
         <div class="col-md-10">
             <div class="form-group">

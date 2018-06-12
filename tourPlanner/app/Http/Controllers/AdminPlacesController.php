@@ -57,8 +57,19 @@ class AdminPlacesController extends Controller
         $title = $request->get('title');
         $description = $request->get('description');
         $tags = $request->get('tags');
+
+
+        if($request->hasFile('image1')){
+            $file = $request->file('image1');
+            $fileName = $file->getClientOriginalName();
+            $fileName = time().$fileName;
+            $file->move('locations', $fileName);
+            
+        }
+
         $created_at = Carbon::now();
-        $posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
+        //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
+        $posts = DB::insert('insert into places (title, description, tags,photo1, created_at) values (?, ?, ?,?,?)', [$title, $description, $tags,$fileName,$created_at]);
         if($posts){
             return redirect('admin/');
         }else{
@@ -92,9 +103,11 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Admin $admin,$id)
     {
         //
+        $places = DB::table('places')->get()->where('id',$id);
+        return view('Admin.posts.editpost',['places' => $places]);
     }
 
     /**
@@ -104,9 +117,19 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, Admin $admin,$id)
     {
         //
+        $title = $request->get('title');
+        $description = $request->get('description');
+        $tags = $request->get('tags');
+        $posts = DB::update('update places set title=?, description=?, tags=? where id=?', [$title, $description, $tags,$id]);
+        if($posts){
+            return redirect('admin/');
+        }else{
+            return view('Admin.posts.editpost');
+        }
+
     }
 
     /**
@@ -115,8 +138,16 @@ class AdminPlacesController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin,$id)
     {
         //
+        $posts = DB::delete('delete from places where id=?',[$id]);
+        return redirect('admin/');
+    }
+
+    public function addNew()
+    {
+        //
+        return view('Admin.posts.addnewpost');
     }
 }
