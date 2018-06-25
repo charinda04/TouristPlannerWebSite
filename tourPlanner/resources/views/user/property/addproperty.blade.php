@@ -117,7 +117,7 @@
             <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Rent per day</label>
+                            <label>Rent per day : Rs</label>
                             <input id="rent" type="text" class="form-control" name="rent" required>
                         </div>
                     </div> 

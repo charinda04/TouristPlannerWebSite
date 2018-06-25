@@ -182,4 +182,9 @@ class PropertiesController extends Controller
             ->where('property_id',$id);
         return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments]);
     }
+
+    public function propertySearch()
+    {
+        return view('user.property.searchproperty');
+    }
 }

@@ -97,7 +97,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div id="menu1" class="container tab-pane active"><br>
-          <form role="form" method="POST" action="{{url('/admin/addnewpost')}}">
+          <form role="form" method="POST" action="{{url('/user/searchproperty')}}">
             {{ csrf_field() }}
         
             <div class="row">
@@ -186,21 +186,13 @@
             </div>
           </div>
           <div class="col-lg-2 mb-2">
-            {{--  <div class="card h-100">
-              <h4 class="card-header">Card Title</h4>
-              <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>  --}}
+            
           </div>
           <div class="col-lg-5 mb-5">
             <div class="card h-100">
               <h4 class="card-header">Create Tour Planner</h4>
               <div class="card-body">
-                  <form role="form" method="POST" action="{{url('/admin/addnewpost')}}">
+                  <form role="form" method="POST" action="{{url('/user/searchproperty')}}">
                     {{ csrf_field() }}
                 
                     <div class="row">
