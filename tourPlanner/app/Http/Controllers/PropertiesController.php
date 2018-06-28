@@ -183,8 +183,13 @@ class PropertiesController extends Controller
         return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments]);
     }
 
-    public function propertySearch()
+    public function propertySearch(Request $request)
     {
-        return view('user.property.searchproperty');
+        $city = $request->get('city');
+        $properties = DB::table('properties')
+        ->where('city', 'like','%'.$city.'%')
+        ->get();
+        
+        return view('user.property.searchproperty',['properties' => $properties]);
     }
 }

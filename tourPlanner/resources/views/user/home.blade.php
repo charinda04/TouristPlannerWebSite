@@ -109,21 +109,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10">
+                  
+                     
+                          
+
+                <!-- Date range -->
+
+               <div class="col-md-10">
                     <div class="form-group">
-                        <label>Check in date</label>
-                        <input id="no_people" type="text" class="form-control" name="no_people" required>
+                  <label>Date range:</label>
+                
+              
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-calendar"></i>
+                      </span>
                     </div>
-                </div>
+                    <input type="text" class="form-control float-right" id="reservation">
+                  </div>
+                  <!-- /.input group -->
+                
+                <!-- /.form group -->
+              </div>
+
+      
             </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="form-group">
-                        <label>Check out date</label>
-                        <input id="no_people" type="text" class="form-control" name="no_people" required>
-                    </div>
-                </div>
-            </div>
+        
+    </div>
             <div class="row">
                 <div class="col-md-10">
                     <div class="form-group">
