@@ -6,6 +6,8 @@
 <div class="container">
     <div class="col-lg-10">
             @foreach($properties as $property)
+            <br>
+            <a href="{{ url('user/properties') }}" class="btn btn-info">Back</a>
             <!-- Title -->
             <h1 class="mt-4">{{ $property->title }}</h1>
     
@@ -29,6 +31,7 @@
             <hr>
     
             <!-- Post Content -->
+            <h4>Price : {{ $property->rent }} per day</h4>
             <p class="lead">{{ $property->summery }}</p>
     
             

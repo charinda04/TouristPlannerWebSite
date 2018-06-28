@@ -20,10 +20,11 @@ class PropertiesController extends Controller
          $this->middleware('user');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         //
-        return view('user.property.addproperty');
+
+        return view('user.property.addproperty',['request'=>$request]);
     }
 
     /**
@@ -57,6 +58,7 @@ class PropertiesController extends Controller
         $contact= $request->get('contact');
         $title= $request->get('title');
         $summary= $request->get('description');
+        $rent= $request->get('rent');
         $created_at = Carbon::now();
 
 
@@ -70,8 +72,8 @@ class PropertiesController extends Controller
 
         //$created_at = Carbon::now();
         //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
-        $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no, created_at,user_id) values (?, ?, ?,?,?,?,?,?,?,?,?,?,?)', 
-        [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact, $created_at,$user_id]);
+        $posts = DB::insert('insert into properties (type, no_of_persons, no_of_beds,bathrooms,no,street,city,photo1,summery,title,contact_no, created_at,user_id,rent ) values (?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)', 
+        [$type, $person, $bed,$bathroom,$no,$street,$city,$fileName,$summary,$title, $contact, $created_at,$user_id,$rent]);
         if($posts){
             return redirect('user/properties');
         }else{
@@ -127,10 +129,25 @@ class PropertiesController extends Controller
         $contact= $request->get('contact');
         $title= $request->get('title');
         $summary= $request->get('description');
+        $rent= $request->get('rent');
+
+        if($request->hasFile('image1')){
+            $file = $request->file('image1');
+            $fileName = $file->getClientOriginalName();
+            $fileName = time().$fileName;
+            $file->move('properties', $fileName);
+
+            $posts = DB::update('update properties set type=?, no_of_persons=?, no_of_beds=?, bathrooms=?, no=?, street=?, city=?, summery=?, title=?, contact_no=?, rent=?, photo1=? where id=?', 
+            [$type, $person, $bed, $bathroom, $no, $street, $city, $summary, $title, $contact, $rent, $fileName, $id]);
+            
+        }else{
+            $posts = DB::update('update properties set type=?, no_of_persons=?, no_of_beds=?, bathrooms=?, no=?, street=?, city=?, summery=?, title=?, contact_no=?, rent=? where id=?', 
+            [$type, $person, $bed, $bathroom, $no, $street, $city, $summary, $title, $contact, $rent, $id]);
+        }
+
         
 
-        $posts = DB::update('update properties set type=?, no_of_persons=?, no_of_beds=?, bathrooms=?, no=?, street=?, city=?, summery=?, title=?, contact_no=? where id=?', 
-        [$type, $person, $bed, $bathroom, $no, $street, $city, $contact, $title, $summary,$id]);
+        
 
         if($posts){
             return redirect('user/properties');
@@ -164,5 +181,15 @@ class PropertiesController extends Controller
             ->get()
             ->where('property_id',$id);
         return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments]);
+    }
+
+    public function propertySearch(Request $request)
+    {
+        $city = $request->get('city');
+        $properties = DB::table('properties')
+        ->where('city', 'like','%'.$city.'%')
+        ->get();
+        
+        return view('user.property.searchproperty',['properties' => $properties]);
     }
 }

@@ -27,11 +27,12 @@ class CreatePropertiesTable extends Migration
             $table->String('photo2')->nullable();
             $table->text('summery');
             $table->String('title');
-            $table->String('status')->nullable()->default(0);
+            $table->String('rent')->nullable();
+            $table->String('status')->nullable()->default(1);
             $table->String('admin_permission')->nullable()->default(0);
             $table->String('date')->nullable();
             $table->String('contact_no');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
 
             // $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

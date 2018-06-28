@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Tour Planner</title>
+  <link rel="icon" type="image/png" href="{{ asset('icons/1.png') }}" />
+
   <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -29,7 +31,7 @@
         align: "left";
       }
     </style>
-</head>
+</head> 
 <body>
     <!-- Navigation -->
     @include('user/navbar')
@@ -56,9 +58,22 @@
       <!-- AdminLTE App -->
       <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 
+      <!-- InputMask -->
+      <script src="{{ asset('plugins/input-mask/jquery.inputmask.js') }}"></script>
+      <script src="{{ asset('plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+      <script src="{{ asset('plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
+      
+      <!-- Select2 -->
+      <script src="{{ asset('plugins/select2/select2.full.min.js') }}"></script>
 <script>
   //Date range picker
   $('#reservation').daterangepicker()
+
+  //Datemask dd/mm/yyyy
+  $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+
+  //Initialize Select2 Elements
+  $('.select2').select2()
 </script>
 
 <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
