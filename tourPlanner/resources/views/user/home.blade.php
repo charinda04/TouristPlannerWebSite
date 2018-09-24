@@ -299,12 +299,18 @@
         <!-- /.row -->
 
         <hr><br>
+        <form autocomplete="off" method="POST" action="{{url('/user/search_result')}}">
+          {{ csrf_field() }}
+          
         <div class="input-group input-group-sm">
-          <input type="text" class="form-control">
+            <div class="autocomplete input-group input-group-sm">
+          <input type="text" id="myInput" name="place" placeholder="Enter a place to search" class="form-control">
           <span class="input-group-append">
-            <button type="button" class="btn btn-info btn-flat">Search!</button>
+            <button type="submit" class="btn btn-info btn-flat">Search!</button>
           </span>
         </div>
+      </div>
+      </form>
         <br>
         <hr>
   

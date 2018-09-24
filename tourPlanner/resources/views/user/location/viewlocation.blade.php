@@ -61,6 +61,73 @@
                     </form>
                   </div>
                 </div>
+
+
+                <div class="card my-4">
+                  <h5 class="card-header">Filter Comments</h5>
+                  <div class="card-body">
+                    
+                    <div class="row">
+                      {{-- <label class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label> --}}
+                      <label>Country</label>
+                      <div class="col-md-3">
+                 
+                  <select select id="country" name="country" onclick=filterData()>
+                    <option value="All">All</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                  </select>
+
+                </div>
+
+                <script>
+                  
+    function refresh(){
+      $.ajax({
+          type: "GET",
+          url: "server.php",
+          success: function(data){
+              $('tbody').html(data);
+          }
+      });
+  }
+
+
+
+  function filterData(str){
+      var id = $place->id;
+      $.ajax({
+          type: "GET",
+          url: "server.php?p=del",
+          data: "id="+id,
+          success: function(data){
+              viewData();
+          }
+
+      });
+  }
+                </script>
+{{--                               
+                    <script>
+                          $(function () {
+                              $("select").select2();
+                          });
+                  
+                          $(document).ready(function() {
+                              $(".js-example-basic-multiple").select2();
+                          });
+                    </script>
+                     --}}
+                  
+                      </div>
+                  </div>
+                </div>
+                <div>
+                  
+    </div>
+
+
         
                 <!-- Single Comment -->
                 @foreach($comments as $comment)

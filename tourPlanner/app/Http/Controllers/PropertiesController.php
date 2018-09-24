@@ -95,6 +95,33 @@ class PropertiesController extends Controller
         return view('user.property.allproperties', ['properties' => $properties]);
     }
 
+
+    public function search(Request $request)
+    {
+        
+
+        $title = $request->post('place');
+
+        echo '<script> alert('.$title.') </script>';
+
+        $places = DB::table('places')
+        ->where('title', 'like','%'.$title.'%')
+        ->get();
+
+        // $type = $request->get('place');
+        // $type = $id;
+        // $places = DB::table('places')
+        //             ->where('city', 'like','%'.$city.'%')
+        //             ->get();
+        
+            
+      
+        // return view('user.home', ['places' => $places]);
+        // $id = Auth::user()->id;
+        // $properties = DB::table('properties')->get()->where('user_id',$id);
+        return view('user.location.searchResult', ['places' => $places]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -32,6 +32,15 @@ class UserPlacesController extends Controller
             return view('user.home', ['places' => $places]);
     }
 
+
+    public function search()
+    {
+        //
+        // $id = Auth::user()->id;
+        // $properties = DB::table('properties')->get()->where('user_id',$id);
+        return view('user.location.searchResult');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -115,7 +124,9 @@ class UserPlacesController extends Controller
     public function view($id)
     {
         //
+
         $places = DB::table('places')->get()->where('id',$id);
+
         $comments = DB::table('comment_place')
             ->join('users', 'comment_place.user_id', '=', 'users.id' )
             ->select('comment_place.*', 'users.name')

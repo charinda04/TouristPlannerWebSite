@@ -58,7 +58,6 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/properties', 'PropertiesController@show');
     Route::get('/viewproperty/{id}', 'PropertiesController@view');
     Route::get('/editproperty/{id}', 'PropertiesController@edit');
-   
 
    
     Route::post('/rentplace', 'PropertiesController@index');
@@ -68,4 +67,14 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/locationcomment/{id}', 'UserPlacesController@store');
     Route::post('/propertycomment/{id}', 'UserPropertiesController@store');
     Route::post('/searchproperty', 'PropertiesController@propertySearch');
+    Route::post('/search_result', 'PropertiesController@search');
+
+});
+
+
+
+Route::group(['prefix' => 'ajax'], function () {
+
+    Route::get('/places', 'AjaxController@index');
+
 });

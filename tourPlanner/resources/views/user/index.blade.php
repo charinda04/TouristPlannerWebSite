@@ -25,6 +25,9 @@
 
   <!-- daterange picker -->
   <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
+
+
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
       .card1{
         width:400px; adjust this value according your requirement
@@ -65,6 +68,8 @@
       
       <!-- Select2 -->
       <script src="{{ asset('plugins/select2/select2.full.min.js') }}"></script>
+
+      <script src="{{ asset('js/custom.js') }}"></script>
 <script>
   //Date range picker
   $('#reservation').daterangepicker()
