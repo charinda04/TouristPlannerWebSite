@@ -104,7 +104,9 @@
                 <div class="col-md-10">
                     <div class="form-group">
                         <label>City</label>
-                        <input id="city" type="text" class="form-control" name="city" required>
+                        <div class="autocomplete">
+                        <input id="city" type="text" id="searchPlace" placeholder="Enter a place to search" class="form-control" name="city" required>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -193,7 +195,7 @@
       
       <div id="menu2" class="container tab-pane fade"><br>
         <h3>Menu 2</h3>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        {{--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  --}}
       </div>
     </div>
             </div>
@@ -205,7 +207,7 @@
             <div class="card h-100">
               <h4 class="card-header">Create Tour Planner</h4>
               <div class="card-body">
-                  <form role="form" method="POST" action="{{url('/user/searchproperty')}}">
+                  <form role="form" method="POST" action="{{url('/user/tourplanner')}}">
                     {{ csrf_field() }}
                 
                     <div class="row">
@@ -213,7 +215,7 @@
                                 <label>Start City</label>
                               </div>
                               <div class="col-md-8">
-                              <input id="title" type="text" class="form-control" name="title" required>
+                              <input id="start" type="text" class="form-control" name="title" >
                             </div>
                     </div>
                     <br>
@@ -222,12 +224,12 @@
                         <label>Destination</label>
                       </div>
                       <div class="col-md-8">
-                      <input id="title" type="text" class="form-control" name="title" required>
+                      <input id="end" type="text" class="form-control" name="title" >
                     </div>
             </div>
 
             <br>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-4">
                 <label>No of people</label>
               </div>
@@ -235,7 +237,7 @@
               <input id="title" type="text" class="form-control" name="title" required>
             </div>
     </div>
-                 <br>
+                 <br> --}}
                 <div class="row">
                   
                      
@@ -304,7 +306,7 @@
           
         <div class="input-group input-group-sm">
             <div class="autocomplete input-group input-group-sm">
-          <input type="text" id="myInput" name="place" placeholder="Enter a place to search" class="form-control">
+          <input type="text" id="searchPlace" name="place" placeholder="Enter a place to search" class="form-control">
           <span class="input-group-append">
             <button type="submit" class="btn btn-info btn-flat">Search!</button>
           </span>
@@ -318,12 +320,6 @@
         <br>
         <h2>Most beautiful places to see in Sri Lanka</h2>
         <br>
-
-
-       
-
-
-
 
 
         <div class="row">

@@ -121,19 +121,36 @@ class UserPlacesController extends Controller
         //
     }
 
-    public function view($id)
+    public function view(Request $request, $id)
     {
         //
-
-        $places = DB::table('places')->get()->where('id',$id);
-
-        $comments = DB::table('comment_place')
+        $check = $request->post('filterCheck');
+        $country = $request->post('country');
+        $countries =  DB::table('countries')
+                        ->select('*')
+                        ->get();
+        if($check != 1){
+            $comments = DB::table('comment_place')
             ->join('users', 'comment_place.user_id', '=', 'users.id' )
             ->select('comment_place.*', 'users.name')
             ->get()
             ->where('place_id',$id);
+        }else{
+            $comments = DB::table('comment_place')
+            ->join('users', 'comment_place.user_id', '=', 'users.id' )
+            ->select('comment_place.*', 'users.name')
+            ->get()
+            ->where('place_id',$id,'AND','users.country','=',$country);
+        }
+
+        $places = DB::table('places')->get()->where('id',$id);
+
+        
 
 
-        return view('user.location.viewlocation',['places' => $places,'comments' =>$comments]);
+            // echo "<script>alert(".$request.")</script>";
+
+
+        return view('user.location.viewlocation',['places' => $places,'comments' =>$comments, 'countries' => $countries]);
     }
 }

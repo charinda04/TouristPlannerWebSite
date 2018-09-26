@@ -3,6 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+
+use Auth;
+use App\user;
+
 
 class TourplansController extends Controller
 {
@@ -21,9 +30,46 @@ class TourplansController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        // $start = $request->post('start');
+        // $end = $request->post('end');
+
+        $start = "ELLA";
+        $end = "MIRISSA";
+
+        // $startCordinates = DB::table('places_towns')
+        // ->select('name')
+        // ->get()
+        // ->where('name', 'like','%'.$start.'%');
+
+        $startCordinates = DB::select('SELECT * FROM places_towns WHERE name = '.$start.'');
+
+        $endCordinates = DB::table('places_towns')
+        ->select('*')
+        ->get()
+        ->where('name', 'like','%'.$end.'%');
+
+
+
+        $startCordinatesLat = 0;
+        $startCordinatesLon = 0;
+        $endCordinatesLat = 0;
+        $endCordinatesLon = 0;
+
+        foreach($startCordinates as $cordinate){
+            $startCordinatesLat = $cordinate->latitude;
+            $startCordinatesLon = $cordinate->longitude;
+
+        }
+
+
+        echo "<script>alert(".$start.")</script>";
+
+        echo "test";
+        echo "$startCordinates";
+
     }
 
     /**

@@ -69,18 +69,38 @@
                     
                     <div class="row">
                       {{-- <label class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label> --}}
-                      <label>Country</label>
-                      <div class="col-md-3">
-                 
-                  <select select id="country" name="country" onclick=filterData()>
-                    <option value="All">All</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                  </select>
+                      
+                      {{--  <div class="col-md-3">  --}}
+                     
+                
 
-                </div>
+                          <form  role="form" method="POST" action="{{ url('/user/viewlocation/'.sprintf("%s",$place->id )) }}">
+                            {{ csrf_field() }}
+                            {{--  <div class="form-group">  --}}
 
+
+                                <label>Country</label>
+
+                              {{--  <textarea class="form-control" rows="3" name="comment"></textarea>  --}}
+                              <select select id="country" name="country" onclick=filterData()>
+                                  @foreach ($countries as $row)
+                                     <option id="country" value={{$row->Country}}>{{$row->Country}}</option>
+                                  @endforeach
+                                   </select>
+                                  <input type="hidden" value="1" id=  "filterCheck">
+                            {{--  </div>  --}}
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                          </form>
+
+
+
+
+
+
+                
+
+                {{--  </div>  --}}
+{{--  
                 <script>
                   
     function refresh(){
@@ -107,7 +127,7 @@
 
       });
   }
-                </script>
+                </script>  --}}
 {{--                               
                     <script>
                           $(function () {
@@ -123,9 +143,7 @@
                       </div>
                   </div>
                 </div>
-                <div>
-                  
-    </div>
+   
 
 
         

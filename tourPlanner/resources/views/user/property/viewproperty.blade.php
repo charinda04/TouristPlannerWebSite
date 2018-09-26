@@ -8,6 +8,24 @@
             @foreach($properties as $property)
             <br>
             <a href="{{ url('user/properties') }}" class="btn btn-info">Back</a>
+
+            @if(($property->admin_permission) == 1)
+            @if((($property->status) == 0) )
+            
+                <a href="{{ url('user/publishproperty/'.sprintf("%s",$property->id )) }}" class="btn btn-success">Publish</a>
+              
+            @else
+
+             
+                 
+                  <a href="{{ url('user/unpublishproperty/' .sprintf("%s",$property->id )) }}" class="btn btn-danger">Unpublish</a>
+               
+          @endif
+          @endif
+
+            
+
+
             <!-- Title -->
             <h1 class="mt-4">{{ $property->title }}</h1>
     
@@ -48,8 +66,8 @@
             @endforeach
             <hr>
     
-            
-        
+            @foreach($properties as $property)
+        @if( ($property->user_id) != $user_id)
                 <!-- Comments Form -->
                 <div class="card my-4">
                   <h5 class="card-header">Leave a Comment:</h5>
@@ -63,6 +81,8 @@
                     </form>
                   </div>
                 </div>
+                @endif
+                @endforeach
 
                 <!-- Single Comment -->
                 @foreach($comments as $comment)

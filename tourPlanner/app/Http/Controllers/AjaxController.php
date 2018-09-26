@@ -28,13 +28,7 @@ class AjaxController extends Controller
 
         }
 
-        ?>
-        
-        <script>
-            alert("test");
-        </script>
-
-        <?php
+      
 
         return $result_array;
 

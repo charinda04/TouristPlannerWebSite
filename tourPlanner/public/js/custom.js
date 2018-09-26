@@ -1,7 +1,14 @@
 
 /*An array containing all the country names in the world:*/
-var countries = ["ELLA","MIRISSA","LITTLE ADAM'S PEAK","DAMBULLA","KUMANA","HIKKADUWA"];
+var places = ["ELLA","MIRISSA","LITTLE ADAM'S PEAK","DAMBULLA","KUMANA","HIKKADUWA"];
+var allCities = [];
+var savedCities = ["Veyangoda"];
   
+
+
+
+
+
 
 
 
@@ -107,7 +114,9 @@ function autocomplete(inp, arr) {
   var countries1 = null;
   
   /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-  autocomplete(document.getElementById("myInput"), countries);
+  autocomplete(document.getElementById("searchPlace"), places);
+
+  autocomplete(document.getElementById("city"), savedCities);
 
 
 

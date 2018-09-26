@@ -90,11 +90,44 @@ class PropertiesController extends Controller
     public function show()
     {
         //
-        $id = Auth::user()->id;
-        $properties = DB::table('properties')->get()->where('user_id',$id);
+        $user_id = Auth::user()->id;
+        $properties = DB::table('properties')->get()->where('user_id',$user_id);
         return view('user.property.allproperties', ['properties' => $properties]);
     }
 
+    public function publish($id)
+    {
+        //
+        $user_id = Auth::user()->id;
+        $status = 1;
+        $posts = DB::update('update properties set status=? where id=?', 
+            [$status, $id]);
+
+        $properties = DB::table('properties')->get()->where('user_id',$user_id);
+        return view('user.property.allproperties', ['properties' => $properties]);
+    }
+
+    public function unpublish($id)
+    {
+        //
+        $user_id = Auth::user()->id;
+        $status = 0;
+        $posts = DB::update('update properties set status=? where id=?', 
+            [ $status, $id]);
+        // echo '<script>alert('.$id.')</script>';
+
+            if($posts){
+                // $id = Auth::user()->id;
+                $properties = DB::table('properties')->get()->where('user_id',$user_id);
+                return view('user.property.allproperties', ['properties' => $properties]);
+                
+            }else{
+                // return view('Admin.posts.editpost');
+            }
+            $this->show();
+
+        
+    }
 
     public function search(Request $request)
     {
@@ -200,23 +233,30 @@ class PropertiesController extends Controller
     public function view($id)
     {
         //
-
+        
+        $user_id = Auth::user()->id;
         $properties = DB::table('properties')->get()->where('id',$id);
         $comments = DB::table('comment_property')
             ->join('users', 'comment_property.user_id', '=', 'users.id' )
             ->select('comment_property.*', 'users.name')
             ->get()
             ->where('property_id',$id);
-        return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments]);
+        return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments, 'user_id' => $user_id]);
     }
 
     public function propertySearch(Request $request)
     {
-        $city = $request->get('city');
+        $city = $request->post('city');
+        $no_people = $request->post('no_people');
+        $reservation = $request->post('reservation');
+
+
         $properties = DB::table('properties')
-        ->where('city', 'like','%'.$city.'%')
+        ->where('city', 'like','%'.$city.'%', 'AND', 'no_of_persons', '<', $no_people )
         ->get();
         
-        return view('user.property.searchproperty',['properties' => $properties]);
+
+        
+        return view('user.property.searchproperty',['properties' => $properties, 'city' => $city, 'no_people' => $no_people, 'reservation' => $reservation]);
     }
 }
