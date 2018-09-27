@@ -1,14 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-
 use Auth;
 use App\user;
 
@@ -36,20 +32,20 @@ class TourplansController extends Controller
         // $start = $request->post('start');
         // $end = $request->post('end');
 
-        $start = "ELLA";
+        $start = "ELL";
         $end = "MIRISSA";
 
-        // $startCordinates = DB::table('places_towns')
-        // ->select('name')
-        // ->get()
-        // ->where('name', 'like','%'.$start.'%');
+        $startCordinates = DB::select('SELECT * FROM places_towns WHERE name LIKE  ?',['%'.$start.'%']);
+        $endCordinates = DB::select('SELECT * FROM places_towns WHERE name LIKE  ?',['%'.$end.'%']);
 
-        $startCordinates = DB::select('SELECT * FROM places_towns WHERE name = '.$start.'');
+        // $startCordinates = DB::table('places_towns')->get()->where('name', 'like', '{%'.$start.'%}');
+        // $endCordinates = DB::table('places_towns')->get()->where('name',$end);
 
-        $endCordinates = DB::table('places_towns')
-        ->select('*')
-        ->get()
-        ->where('name', 'like','%'.$end.'%');
+
+        // $endCordinates = DB::table('places_towns')
+        // ->select('*')
+        // ->where('name', 'like','%'.$end.'%')
+        // ->get();
 
 
 
@@ -64,11 +60,74 @@ class TourplansController extends Controller
 
         }
 
+        foreach($endCordinates as $cordinate){
+            $endCordinatesLat = $cordinate->latitude;
+            $endCordinatesLon = $cordinate->longitude;
 
-        echo "<script>alert(".$start.")</script>";
+        }
 
-        echo "test";
-        echo "$startCordinates";
+        $midLat = ($startCordinatesLat + $endCordinatesLat)/2;
+        $midLon = ($startCordinatesLon + $endCordinatesLon)/2;
+
+        $radius = sqrt(pow(abs($startCordinatesLat - $midLat),2) + pow(abs($startCordinatesLon - $midLon),2));
+
+
+        $placeList = array();
+
+        $allPlaces = DB::select('SELECT * FROM places_towns');
+        
+        foreach($allPlaces as $place){
+            $placeLat = $place->latitude;
+            $placeLon = $place->longitude;
+
+            $placeRadius = sqrt(pow(abs($placeLat - $midLat),2) + pow(abs($placeLon - $midLon),2));
+
+            if($radius > $placeRadius){
+                $placeList[] = $place;
+            }
+        }
+
+        $plannerList = array();
+        $plannerListSorted = array();
+
+        foreach($placeList as $place){
+            $placeLat = $place->latitude;
+            $placeLon = $place->longitude;
+
+            $distanceFromStart = sqrt(pow(abs($placeLat - $startCordinatesLat),2) + pow(abs($placeLon - $startCordinatesLon),2));
+
+            $object = new stdClass();
+            $object->place = $place;
+            $object->diatance = $distanceFromStart;
+             
+            $plannerList[] = $object;
+        }
+
+        
+
+
+
+
+
+
+        // echo "<script>alert(".$start.")</script>";
+        // $x = implode("|",$startCordinates);
+
+        $rows = array();
+
+        foreach($startCordinates as $r){
+            $rows[] = $r;
+        }
+        echo json_encode($placeList);
+
+        // echo "test";
+        // echo "$radius";
+        // echo "$midLon";
+
+
+        // echo "<script>alert(".$startCordinates.")</script>";
+
+        return view('user.tourplan.tourplanlist');
 
     }
 
