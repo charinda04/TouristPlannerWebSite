@@ -58,6 +58,8 @@ class AdminPlacesController extends Controller
         $title = $request->get('title');
         $description = $request->get('description');
         $tags = $request->get('tags');
+        $latitude = $request->get('latitude');
+        $longitude = $request->get('longitude');
 
 
         if($request->hasFile('image1')){
@@ -70,7 +72,9 @@ class AdminPlacesController extends Controller
 
         $created_at = Carbon::now();
         //$posts = DB::insert('insert into places (title, description, tags, created_at) values (?, ?, ?, ?)', [$title, $description, $tags, $created_at]);
-        $posts = DB::insert('insert into places (title, description, tags,photo1, created_at) values (?, ?, ?,?,?)', [$title, $description, $tags,$fileName,$created_at]);
+        $posts = DB::insert('insert into places (title, description, tags,photo1, created_at, latitude, longitude) values (?, ?, ?,?,?,?,?)', [$title, $description, $tags,$fileName,$created_at,$latitude,$longitude]);
+
+        // $placeCordinate = DB::insert('insert into places_towns (name, latitude, longitude) values (?, ?, ?)', [$title, $latitude, $longitude]);
         if($posts){
             return redirect('admin/');
         }else{
@@ -114,6 +118,7 @@ class AdminPlacesController extends Controller
     {
         //
         $places = DB::table('places')->get()->where('id',$id);
+
         return view('Admin.posts.editpost',['places' => $places]);
     }
 
@@ -130,6 +135,8 @@ class AdminPlacesController extends Controller
         $title = $request->get('title');
         $description = $request->get('description');
         $tags = $request->get('tags');
+        $latitude = $request->get('latitude');
+        $longitude = $request->get('longitude');
 
         if($request->hasFile('image1')){
             $file = $request->file('image1');
@@ -137,9 +144,9 @@ class AdminPlacesController extends Controller
             $fileName = time().$fileName;
             $file->move('locations', $fileName);
             
-            $posts = DB::update('update places set title=?, description=?, tags=?, photo1=? where id=?', [$title, $description, $tags, $fileName, $id]);
+            $posts = DB::update('update places set title=?, description=?, tags=?, latitude=?, longitude=?, photo1=? where id=?', [$title, $description, $tags, $latitude, $longitude, $fileName, $id]);
         }else{
-            $posts = DB::update('update places set title=?, description=?, tags=? where id=?', [$title, $description, $tags,$id]);
+            $posts = DB::update('update places set title=?, description=?, tags=?, latitude=?, longitude=? where id=?', [$title, $description, $tags, $latitude, $longitude, $id]);
         }
 
 

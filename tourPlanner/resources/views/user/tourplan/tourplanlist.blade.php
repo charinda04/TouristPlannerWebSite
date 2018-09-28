@@ -4,11 +4,12 @@
 
     <div class="container">
 
-        {{-- <a href="{{ url('user/mapview) }}" class="btn btn-success">Publish</a> --}}
+        <br>
+        <div>
+        <a href="{{ url('user/mapview') }}" class="btn btn-info">Map View</a>
 
-        <a href="{{ url('user/mapview') }}" class="btn btn-info">Back</a>
-
-        <button  class="btn btn-success" disabled="disabled">dsfsdfsdfsd</button>
+        </div>
+        <br>
 
         {{-- <div class="row">
             @foreach($places as $key => $place)

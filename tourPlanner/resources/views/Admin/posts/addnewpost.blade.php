@@ -16,6 +16,24 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label>Latitude</label>
+                    <input id="latitude" type="text" class="form-control" name="latitude" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>Longitude</label>
+                        <input id="longitude" type="text" class="form-control" name="longitude" required>
+                    </div>
+                </div>
+            </div>
  
     <div class="row">
         <div class="col-md-10">
