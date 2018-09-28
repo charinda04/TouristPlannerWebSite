@@ -61,10 +61,37 @@
               </footer>
             </blockquote> --}}
     
-            
+            {{-- {{url('/admin/editpost/'.sprintf("%s",$place->id ))}} --}}
     
             @endforeach
+            <br>
             <hr>
+            
+            <form role="form" method="POST" action="{{url('/user/confirmbooking/'.sprintf("%s",$property->id ))}}">
+              {{ csrf_field() }}
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label>No of days</label>
+                        <input id="longitude" type="number" class="form-control" name="longitude" value="" required>
+                        <br>
+                        <button type="submit" class="btn btn-success">Book Now</button>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+
+          </form>
+            <br>
+
+            {{-- <a href="{{ url('user/properties') }}" class="btn btn-success">Book Now</a> --}}
+
+
+            <hr>
+            <br>
     
             @foreach($properties as $property)
         @if( ($property->user_id) != $user_id)

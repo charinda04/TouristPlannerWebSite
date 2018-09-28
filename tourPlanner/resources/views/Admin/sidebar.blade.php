@@ -53,27 +53,18 @@
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>a</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>b</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
+            
           </li>
+          <li class="nav-item has-treeview">
+              <a href="{{ url('admin/properties') }}" class="nav-link">
+                <i class="nav-icon fa fa-align-justify"></i>
+                <p>
+                  Properties
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              
+            </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-tree"></i>
@@ -191,45 +182,21 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/requests') }}" class="nav-link">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Requests
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/examples/invoice.html" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Invoice</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Login</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/register.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Register</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/lockscreen.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-            </ul>
+            </ul> --}}
           </li>
 
         

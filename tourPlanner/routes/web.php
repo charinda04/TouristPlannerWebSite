@@ -40,14 +40,20 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/viewpost/{id}', 'AdminPlacesController@show');
     Route::get('/editpost/{id}', 'AdminPlacesController@edit');
     Route::get('/addnewpost', 'AdminPlacesController@addNew');
+    Route::get('/requests', 'AdminsController@request');
+    Route::get('/propertyauth/{id}', 'AdminsController@authenticate');
+    Route::get('/propertyunauth/{id}', 'AdminsController@unauthenticate');
+    Route::get('/properties', 'AdminsController@showproperties');
+    Route::get('/propertyauthenticate/{id}', 'AdminsController@authenticateproperty');
+    Route::get('/propertyunauthenticate/{id}', 'AdminsController@unauthenticateproperty');
+    Route::get('/propertydelete/{id}', 'AdminsController@destroy');
 
+    
     Route::post('/addnewpost', 'AdminPlacesController@store');
     Route::post('/editpost/{id}', 'AdminPlacesController@update');
     Route::post('/deletepost/{id}', 'AdminPlacesController@destroy');
     Route::post('/locationcomment/{id}', 'AdminPlacesController@addcomment');
-
-   
-
+    
 });
 
 Route::group(['prefix' => 'user'], function () {
@@ -60,6 +66,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/unpublishproperty/{id}', 'PropertiesController@unpublish');
     Route::get('/viewproperty/{id}', 'PropertiesController@view');
     Route::get('/editproperty/{id}', 'PropertiesController@edit');
+    Route::get('/bookings', 'BookingsController@index');
 
     Route::get('/mapview', function () {
         return view('user.tourplan.tourplanmap');
@@ -77,6 +84,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/viewlocation/{id}', 'UserPlacesController@view');
     // Route::post('/tourplannerlist', 'TourplansController@create');
     Route::post('/tourplannermap', 'TourplansController@mapview');
+    Route::post('/confirmbooking/{id}', 'BookingsController@confirmbooking');
+    Route::post('/paymentgateway', 'BookingsController@paymentgateway');
 
     Route::post('/tourplannerlist', function () {
         return view('user.tourplan.tourplanlist');

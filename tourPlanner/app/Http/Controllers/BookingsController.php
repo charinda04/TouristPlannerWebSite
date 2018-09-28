@@ -14,6 +14,23 @@ class BookingsController extends Controller
     public function index()
     {
         //
+        return view('user.booking.allbookings');
+
+    }
+
+
+    public function confirmBooking()
+    {
+        //
+        return view('user.booking.confirmbooking');
+
+    }
+
+    public function paymentgateway()
+    {
+        //
+        return view('user.booking.paymentgateway');
+
     }
 
     /**
@@ -24,6 +41,7 @@ class BookingsController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
