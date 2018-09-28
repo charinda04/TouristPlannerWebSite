@@ -200,12 +200,12 @@ small {
     cursor: pointer;
 }
 
-input {
+/* input {
     font-size: 1em;
     padding: .15em;
     text-align: center;
     outline: none;
-}
+} */
 
 .cardNumber input {
     width: 20.9%;

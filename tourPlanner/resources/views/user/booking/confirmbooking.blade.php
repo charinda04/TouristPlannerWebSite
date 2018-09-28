@@ -7,7 +7,80 @@
     <br>
 
 
+    <form role="form" method="POST" action="{{url('/user/paymentgateway')}}" enctype="multipart/form-data" autocomplete="off">
+        {{ csrf_field() }}
+
+        <br>
+
+                    <h3>User details</h3>
+    <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="title" type="text" class="form-control" name="type" >
+                </div>
+            </div> 
+
+            <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Contact No</label>
+                        <input id="title" type="number" class="form-control" name="person" >
+                    </div>
+                </div> 
+        </div>
+
+       
+
+        
+                
+                    <br>
+
+                    <h3>Date details</h3>
+
+                    <br>
+                    <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input id="title" type="text" class="form-control" name="no" >
+                                </div>
+                            </div> 
+
+
+                             
+                        </div>
+                      
+
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Check-In Time</label>
+                                            <input id="title" type="text" class="form-control" name="city" >
+                                        </div>
+                                    </div> 
+
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Check-Out Time</label>
+                                                <input id="title" type="text" class="form-control" name="contact" >
+                                            </div>
+                                        </div> 
+                                </div>
+
+                               
+
+                                    <br>
+
+                                 
+        
+
+        
+
     
+    
+
 
 
 
@@ -15,8 +88,7 @@
 
 
 
-        <form autocomplete="off" method="POST" action="{{url('/user/paymentgateway')}}">
-                {{ csrf_field() }}
+        
                 <table class="table " 
                 {{-- style="font-family:courier;" --}}
                 >
@@ -54,7 +126,8 @@
 
 <br>
 
-
+<br>
+<br>
 
 
 

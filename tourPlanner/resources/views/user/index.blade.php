@@ -23,6 +23,64 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+  <!-- DataTables -->
+  <link href="{{ asset("/bower_components/admin-lte/datatable/dataTables.bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
+
+
+  <script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/jquery.dataTables.js" type="text/javascript"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+
+  <script>
+      var $  = require( 'jquery' );
+      var dt = require( 'datatables.net' )();
+  </script>
+
+
+  <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+    $(document).ready(function(){
+      $('.demo2').collapser({ 
+        mode: 'words',
+        truncate: 30,
+        
+      });
+    });
+</script>
+
+
+<script>
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+  } );
+
+
+</script>
+ 
+
+
+<!-- DataTables -->
+        <script src="{{ asset ("/bower_components/admin-lte/datatable/jquery.dataTables.min.js") }}" type="text/javascript"></script>
+        <script src="{{ asset ("/bower_components/admin-lte/datatable/dataTables.bootstrap.min.js") }}" type="text/javascript"></script>
+        <!-- EditableTables -->
+        <script src="{{ asset ("/bower_components/admin-lte/editable-table/mindmup-editabletable.js") }}" type="text/javascript"></script>
+
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCdTUStHZYtCINVVWtgDZyEE7gWdsoIrE&callback=myMap"></script>
+
+
+  
   <!-- daterange picker -->
   <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
 
@@ -81,22 +139,9 @@
   $('.select2').select2()
 </script>
 
-<script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
-
-<script>
-    $(document).ready(function(){
-      $('.demo2').collapser({ 
-        mode: 'words',
-        truncate: 30,
-        
-      });
-    });
-</script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCdTUStHZYtCINVVWtgDZyEE7gWdsoIrE&callback=myMap"></script>
+
       
-
-
 </body>
 </html>
