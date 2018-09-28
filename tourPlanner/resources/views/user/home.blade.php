@@ -269,22 +269,7 @@
               
                     
                    <br>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <div class="form-group">
-                                <label>Tags</label>
-                                <br>
-                                <label class="checkbox-inline"><input type="checkbox" value="">culture</label>
-<label class="checkbox-inline"><input type="checkbox" value="">beaches</label>
-<label class="checkbox-inline"><input type="checkbox" value="">historic sites</label>
-<label class="checkbox-inline"><input type="checkbox" value="">beaches</label>
-<label class="checkbox-inline"><input type="checkbox" value="">wildlife</label>
-<label class="checkbox-inline"><input type="checkbox" value="">museums</label>
-
-
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="row">
                         <div class="col-md-10">
                             <button type="submit" class="btn btn-primary">Submit</button>

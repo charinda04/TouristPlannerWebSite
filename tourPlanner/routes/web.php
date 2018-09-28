@@ -47,6 +47,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/propertyauthenticate/{id}', 'AdminsController@authenticateproperty');
     Route::get('/propertyunauthenticate/{id}', 'AdminsController@unauthenticateproperty');
     Route::get('/propertydelete/{id}', 'AdminsController@destroy');
+    Route::get('/bookings', 'AdminsController@viewbookings');
+    Route::get('/monthlyreport', 'AdminsController@monthlyReport');
+    Route::get('/yearlyreport', 'AdminsController@yearlyReport');
 
     
     Route::post('/addnewpost', 'AdminPlacesController@store');

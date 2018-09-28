@@ -28,7 +28,7 @@ class AdminPlacesController extends Controller
     {
         //
 
-        $places = DB::table('places')->paginate(5);
+        $places = DB::table('places')->get();
         return view('Admin.posts.allposts', ['places' => $places]);
     }
 

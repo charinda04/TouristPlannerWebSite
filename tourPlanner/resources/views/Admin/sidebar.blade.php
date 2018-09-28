@@ -25,13 +25,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link active">
+                <a href="{{ url('admin/') }}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>All Posts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="{{ url('admin/addnewpost') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Add New Post</p>
                 </a>
@@ -46,7 +46,7 @@
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/bookings') }}" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Bookings
@@ -74,30 +74,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
+                
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -110,26 +87,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="{{ url('admin/monthlyreport') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>Monthly Report</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="{{ url('admin/yearlyreport') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Yearly report</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
+            
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
@@ -151,8 +123,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
@@ -180,7 +152,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item has-treeview">
             <a href="{{ url('admin/requests') }}" class="nav-link">
               <i class="nav-icon fa fa-book"></i>

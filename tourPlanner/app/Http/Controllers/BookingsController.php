@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Auth;
 class BookingsController extends Controller
 {
     /**
@@ -14,7 +14,11 @@ class BookingsController extends Controller
     public function index()
     {
         //
-        return view('user.booking.allbookings');
+        $user_id = Auth::user()->id;
+
+        $bookings = DB::select('SELECT * FROM bookings WHERE user_id=?',[$user_id]);
+
+        return view('user.booking.allbookings', ['bookings' => $bookings]);
 
     }
 
@@ -41,7 +45,7 @@ class BookingsController extends Controller
     public function create()
     {
         //
-        
+
     }
 
     /**

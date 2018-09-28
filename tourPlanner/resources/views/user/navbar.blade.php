@@ -26,7 +26,7 @@
             </a>
 
 
-              <a class="dropdown-item" href="{{url('/user/properties')}}">
+              <a class="dropdown-item" href="{{url('/user/bookings')}}">
                   {{ __('Bookings') }}
               </a>
 
