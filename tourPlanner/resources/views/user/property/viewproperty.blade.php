@@ -9,7 +9,7 @@
             <br>
             <a href="{{ url('user/properties') }}" class="btn btn-info">Back</a>
 
-            @if(($property->admin_permission) == 1)
+            @if((($property->admin_permission) == 1) && (($property->user_id) == $user_id))
             @if((($property->status) == 0) )
             
                 <a href="{{ url('user/publishproperty/'.sprintf("%s",$property->id )) }}" class="btn btn-success">Publish</a>

@@ -207,7 +207,7 @@
             <div class="card h-100">
               <h4 class="card-header">Create Tour Planner</h4>
               <div class="card-body">
-                  <form role="form" method="POST" action="{{url('/user/tourplanner')}}">
+                  <form role="form" method="POST" action="{{url('/user/tourplannerlist')}}">
                     {{ csrf_field() }}
                 
                     <div class="row">

@@ -35,7 +35,7 @@
       }
     </style>
 </head> 
-<body>
+<body >
     <!-- Navigation -->
     @include('user/navbar')
 
@@ -92,6 +92,9 @@
       });
     });
 </script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCdTUStHZYtCINVVWtgDZyEE7gWdsoIrE&callback=myMap"></script>
       
 
 

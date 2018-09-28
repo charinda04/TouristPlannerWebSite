@@ -61,6 +61,10 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/viewproperty/{id}', 'PropertiesController@view');
     Route::get('/editproperty/{id}', 'PropertiesController@edit');
 
+    Route::get('/mapview', function () {
+        return view('user.tourplan.tourplanmap');
+    });
+
    
     Route::post('/rentplace', 'PropertiesController@index');
     Route::post('/addrentplace', 'PropertiesController@store');
@@ -71,9 +75,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/searchproperty', 'PropertiesController@propertySearch');
     Route::post('/search_result', 'PropertiesController@search');
     Route::post('/viewlocation/{id}', 'UserPlacesController@view');
-    Route::post('/tourplanner', 'TourplansController@create');
+    // Route::post('/tourplannerlist', 'TourplansController@create');
+    Route::post('/tourplannermap', 'TourplansController@mapview');
 
-
+    Route::post('/tourplannerlist', function () {
+        return view('user.tourplan.tourplanlist');
+    });
 });
 
 

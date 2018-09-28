@@ -118,7 +118,7 @@ class TourplansController extends Controller
         foreach($startCordinates as $r){
             $rows[] = $r;
         }
-        echo json_encode($placeList);
+        // echo json_encode($radius);
 
         // echo "test";
         // echo "$radius";
