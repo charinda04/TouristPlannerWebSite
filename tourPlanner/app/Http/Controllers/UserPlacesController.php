@@ -124,6 +124,7 @@ class UserPlacesController extends Controller
     public function view(Request $request, $id)
     {
         //
+        $user_id = Auth::user()->id;
         $check = $request->post('filterCheck');
         $country = $request->post('country');
         $countries =  DB::table('countries')
@@ -151,6 +152,11 @@ class UserPlacesController extends Controller
             // echo "<script>alert(".$request.")</script>";
 
 
-        return view('user.location.viewlocation',['places' => $places,'comments' =>$comments, 'countries' => $countries]);
+        return view('user.location.viewlocation',[
+            'places' => $places,
+            'comments' =>$comments, 
+            'countries' => $countries,
+            'user_id' => $user_id
+            ]);
     }
 }

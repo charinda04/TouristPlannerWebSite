@@ -241,7 +241,11 @@ class PropertiesController extends Controller
             ->select('comment_property.*', 'users.name')
             ->get()
             ->where('property_id',$id);
-        return view('user.property.viewproperty',['properties' => $properties, 'comments' =>$comments, 'user_id' => $user_id]);
+        return view('user.property.viewproperty',[
+            'properties' => $properties, 
+            'comments' =>$comments, 
+            'user_id' => $user_id
+            ]);
     }
 
     public function propertySearch(Request $request)
@@ -257,6 +261,11 @@ class PropertiesController extends Controller
         
 
         
-        return view('user.property.searchproperty',['properties' => $properties, 'city' => $city, 'no_people' => $no_people, 'reservation' => $reservation]);
+        return view('user.property.searchproperty',[
+            'properties' => $properties, 
+            'city' => $city, 
+            'no_people' => $no_people, 
+            'reservation' => $reservation
+            ]);
     }
 }

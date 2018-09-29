@@ -70,6 +70,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/viewproperty/{id}', 'PropertiesController@view');
     Route::get('/editproperty/{id}', 'PropertiesController@edit');
     Route::get('/bookings', 'BookingsController@index');
+    Route::get('/mybookings', 'BookingsController@index');
+    Route::get('/income', 'BookingsController@income');
 
     Route::get('/mapview', function () {
         return view('user.tourplan.tourplanmap');

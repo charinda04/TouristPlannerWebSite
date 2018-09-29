@@ -177,40 +177,40 @@ class AdminsController extends Controller
             $day = substr($datefull,8,9);
 
             if($month == 01){
-                $jan += $o->rent; 
+                $jan += (($o->rent) * 3/100); 
             }
             if ($month == 02){
-                $feb += $o->rent; 
+                $feb += (($o->rent) * 3/100); 
             }
             if ($month == 03){
-                $mar += $o->rent; 
+                $mar += (($o->rent) * 3/100); 
             }
             if ($month == 04){
-                $apr += $o->rent; 
+                $apr += (($o->rent) * 3/100); 
             }
             if ($month == 05){
-                $may += $o->rent; 
+                $may += (($o->rent) * 3/100); 
             }
             if ($month == 06){
-                $jun += $o->rent; 
+                $jun += (($o->rent) * 3/100); 
             }
             if ($month == 07){
-                $jul += $o->rent; 
+                $jul += (($o->rent) * 3/100); 
             }
             if ($month == '08'){
-                $aug += $o->rent; 
+                $aug += (($o->rent) * 3/100); 
             }
             if ($month == '09'){
-                $sep += $o->rent; 
+                $sep += (($o->rent) * 3/100); 
             }
             if ($month == 10){
-                $oct += $o->rent; 
+                $oct += (($o->rent) * 3/100); 
             }
             if ($month == 11){
-                $nov += $o->rent; 
+                $nov += (($o->rent) * 3/100); 
             }
             if($month == 12){
-                $dec += $o->rent;
+                $dec += (($o->rent) * 3/100);
             }
             // array_push($a,$o->rank);
         }

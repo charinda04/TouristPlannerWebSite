@@ -1,4 +1,4 @@
-
+  
 <div class="sidebar">
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -56,15 +56,15 @@
             
           </li>
           <li class="nav-item has-treeview">
-              <a href="{{ url('admin/properties') }}" class="nav-link">
-                <i class="nav-icon fa fa-align-justify"></i>
-                <p>
-                  Properties
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              
-            </li>
+            <a href="{{ url('admin/properties') }}" class="nav-link">
+              <i class="nav-icon fa fa-align-justify"></i>
+              <p>
+                Properties
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-tree"></i>
@@ -74,7 +74,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                
+              
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -98,7 +98,7 @@
                   <p>Yearly report</p>
                 </a>
               </li>
-            
+              
             </ul>
           </li>
           {{-- <li class="nav-item has-treeview">
@@ -171,7 +171,7 @@
             </ul> --}}
           </li>
 
-        
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+          
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>

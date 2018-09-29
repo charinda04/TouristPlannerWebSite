@@ -2,15 +2,15 @@
 
 @section('content')
 
-    <div class="container">
-        <br>
-        <div class="">
-        <a href="{{ url('user/mapview') }}" class="btn btn-info">List View</a>
-        </div>
-        <br>
-        <div id="map" style="width:85.2%; height:600px"></div>
+<div class="container">
+	<br>
+	<div class="">
+		<a href="{{ url('user/mapview') }}" class="btn btn-info">List View</a>
+	</div>
+	<br>
+	<div id="map" style="width:85.2%; height:600px"></div>
 
-    </div>
+</div>
 
 @endsection
 
@@ -20,17 +20,17 @@
 
 
 
-function myMap() {
-	var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
-	var mapOptions = {
-		center: new google.maps.LatLng(7.292669, 80.632820),
-		zoom: 9,
-		mapTypeId: google.maps.MapTypeId.roadmap
-	}
+	function myMap() {
+		var directionsService = new google.maps.DirectionsService;
+		var directionsDisplay = new google.maps.DirectionsRenderer;
+		var mapOptions = {
+			center: new google.maps.LatLng(7.292669, 80.632820),
+			zoom: 9,
+			mapTypeId: google.maps.MapTypeId.roadmap
+		}
 
-	map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	directionsDisplay.setMap(map);
+		map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		directionsDisplay.setMap(map);
 
 	//set route method
 	

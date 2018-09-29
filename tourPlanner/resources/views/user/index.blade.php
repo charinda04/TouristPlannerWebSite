@@ -14,7 +14,7 @@
 
   
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   
   <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js" ></script>
   
@@ -39,16 +39,16 @@
 
 
   <!-- Bootstrap core CSS -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
 
-    {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
+  {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
 
-<!-- Font Awesome -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <!-- Ionicons -->
@@ -60,98 +60,98 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
   {{-- <!-- DataTables -->
-  <link href="{{ asset('/bower_components/admin-lte/datatable/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
- --}}
+    <link href="{{ asset('/bower_components/admin-lte/datatable/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    --}}
 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
 
-  {{-- <script>
+    {{-- <script>
       var $  = require( 'jquery' );
       var dt = require( 'datatables.net' )();
-  </script> --}}
+    </script> --}}
+
+
+    <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+
+
+
+
+
+
+    
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
+
+
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <style>
+    .card1{
+      width:400px; adjust this value according your requirement
+      align: "left";
+    }
+  </style>
+</head> 
+<body >
+  <!-- Navigation -->
+  @include('user/navbar')
+
+  @yield('content')
+
+  
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright © Tour Planner Website 2018</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
   <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- date-range-picker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+  <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
 
+  <!-- AdminLTE App -->
+  <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 
-
-
-
-
-
+  <!-- InputMask -->
+  <script src="{{ asset('plugins/input-mask/jquery.inputmask.js') }}"></script>
+  <script src="{{ asset('plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+  <script src="{{ asset('plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
   
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
+  <!-- Select2 -->
+  <script src="{{ asset('plugins/select2/select2.full.min.js') }}"></script>
 
-
-  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <style>
-      .card1{
-        width:400px; adjust this value according your requirement
-        align: "left";
-      }
-    </style>
-</head> 
-<body >
-    <!-- Navigation -->
-    @include('user/navbar')
-
-    @yield('content')
-
-    
-
-    <!-- Footer -->
-      <footer class="py-5 bg-dark">
-        <div class="container">
-          <p class="m-0 text-center text-white">Copyright © Tour Planner Website 2018</p>
-        </div>
-        <!-- /.container -->
-      </footer>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-      <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
-
-
-      <!-- Bootstrap core JavaScript -->
-      <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-      <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-      <!-- date-range-picker -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-      <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-
-      <!-- AdminLTE App -->
-      <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
-
-      <!-- InputMask -->
-      <script src="{{ asset('plugins/input-mask/jquery.inputmask.js') }}"></script>
-      <script src="{{ asset('plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
-      <script src="{{ asset('plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
-      
-      <!-- Select2 -->
-      <script src="{{ asset('plugins/select2/select2.full.min.js') }}"></script>
-
-      <script src="{{ asset('js/custom.js') }}"></script>
-<script>
+  <script src="{{ asset('js/custom.js') }}"></script>
+  <script>
   //Date range picker
   $('#reservation').daterangepicker()
 
@@ -168,37 +168,37 @@
 
 
 <script>
-    $(document).ready(function(){
-      $('.demo2').collapser({ 
-        mode: 'words',
-        truncate: 30,
-        
-      });
+  $(document).ready(function(){
+    $('.demo2').collapser({ 
+      mode: 'words',
+      truncate: 30,
+      
     });
+  });
 </script>
 
 
 {{-- <script>
-    $(document).ready( function () {
-      $('#myTable').DataTable();
+  $(document).ready( function () {
+    $('#myTable').DataTable();
   } );
 
 
 </script> --}}
- 
+
 <!-- DataTables -->
-        {{-- <script src="{{ asset ("/bower_components/admin-lte/datatable/jquery.dataTables.min.js") }}" type="text/javascript"></script>
-        <script src="{{ asset ("/bower_components/admin-lte/datatable/dataTables.bootstrap.min.js") }}" type="text/javascript"></script>
-        <!-- EditableTables -->
-        <script src="{{ asset ("/bower_components/admin-lte/editable-table/mindmup-editabletable.js") }}" type="text/javascript"></script> --}}
+{{-- <script src="{{ asset ("/bower_components/admin-lte/datatable/jquery.dataTables.min.js") }}" type="text/javascript"></script>
+<script src="{{ asset ("/bower_components/admin-lte/datatable/dataTables.bootstrap.min.js") }}" type="text/javascript"></script>
+<!-- EditableTables -->
+<script src="{{ asset ("/bower_components/admin-lte/editable-table/mindmup-editabletable.js") }}" type="text/javascript"></script> --}}
 
 
-        <!-- AdminLTE -->
-        <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-        
+<!-- AdminLTE -->
+<script src="{{ asset('dist/js/adminlte.js') }}"></script>
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCdTUStHZYtCINVVWtgDZyEE7gWdsoIrE&callback=myMap"></script>
-     
+
 
 <!-- OPTIONAL SCRIPTS -->
 <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
@@ -211,20 +211,20 @@
 
 {{-- <!-- DataTables -->
   <link href="{{ asset('/bower_components/admin-lte/datatable/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
- --}}
+  --}}
 
   
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
- <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+  
+  
+  {{-- <script>
+   var $  = require( 'jquery' );
+   var dt = require( 'datatables.net' )();
+ </script> --}}
  
  
-   {{-- <script>
-       var $  = require( 'jquery' );
-       var dt = require( 'datatables.net' )();
-   </script> --}}
- 
- 
-   <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
+ <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
  
  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
