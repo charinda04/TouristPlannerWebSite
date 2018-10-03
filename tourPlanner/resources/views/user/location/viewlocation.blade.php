@@ -87,7 +87,7 @@
                       <option id="country" value={{$row->Country}}>{{$row->Country}}</option>
                       @endforeach
                     </select>
-                    <input type="hidden" value="1" id=  "filterCheck">
+                    <input type="hidden" value="1" id="filterCheck">
                   {{--  </div>  --}}
                   <button type="submit" class="btn btn-primary">Filter</button>
                 </form>

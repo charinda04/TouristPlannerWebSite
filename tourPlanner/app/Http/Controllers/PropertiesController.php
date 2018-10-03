@@ -256,7 +256,7 @@ class PropertiesController extends Controller
 
 
         $properties = DB::table('properties')
-        ->where('city', 'like','%'.$city.'%', 'AND', 'no_of_persons', '<', $no_people )
+        ->where('city', 'like','%'.$city.'%', 'AND', 'no_of_persons', '>', $no_people )
         ->get();
         
 

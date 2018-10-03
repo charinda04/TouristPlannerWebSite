@@ -93,9 +93,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 	var waypts = [];
 	var waypntArray = new Array();
 
-	//var newfirebase = firebase.database().ref('Request');
-
-	//newfirebase.on('value',gotData3);
+	
 
 	function gotData3(datasnapshot){ 
 		var Request = datasnapshot.val();

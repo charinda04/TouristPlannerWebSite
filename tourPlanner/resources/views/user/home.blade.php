@@ -143,7 +143,7 @@
                         <div class="col-md-10">
                           <div class="form-group">
                             <label>No of People</label>
-                            <input id="no_people" type="text" class="form-control" name="no_people" required>
+                            <input id="no_people" type="number" class="form-control" name="no_people" required>
                           </div>
                         </div>
                       </div>
@@ -178,7 +178,7 @@
                         <div class="col-md-10">
                           <div class="form-group">
                             <label>No of People</label>
-                            <input id="no_people" type="text" class="form-control" name="no_people" required>
+                            <input id="no_people" type="number" class="form-control" name="no_people" required>
                           </div>
                         </div>
                       </div>
@@ -291,7 +291,7 @@
             
             <div class="input-group input-group-sm">
               <div class="autocomplete input-group input-group-sm">
-                <input type="text" id="searchPlace" name="place" placeholder="Enter a place to search" class="form-control">
+                <input type="text" id="searchPlace" name="place" placeholder="Enter a place to search" class="form-control" required>
                 <span class="input-group-append">
                   <button type="submit" class="btn btn-info btn-flat">Search!</button>
                 </span>
