@@ -21,7 +21,7 @@ class CreatePlacesTable extends Migration
             $table->String('tags');
             $table->String('photo1');
             $table->String('photo2')->nullable();
-            $table->integer('admin_id')->unsigned();
+            $table->integer('admin_id')->unsigned()->nullable();
 
             // $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();

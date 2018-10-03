@@ -1,4 +1,4 @@
-
+  
 <div class="sidebar">
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -6,7 +6,7 @@
       {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
     </div>
     <div class="info">
-      <a href="#" class="d-block">Alexander Pierce</a>
+      {{-- <a href="#" class="d-block">Alexander Pierce</a> --}}
     </div>
   </div>
 
@@ -25,54 +25,45 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link active">
+                <a href="{{ url('admin/') }}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>All Posts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="{{ url('admin/addnewpost') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Add New Post</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Dashboard v2</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/bookings') }}" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Bookings
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>a</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>b</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
+            
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ url('admin/properties') }}" class="nav-link">
+              <i class="nav-icon fa fa-align-justify"></i>
+              <p>
+                Properties
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -83,30 +74,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -119,26 +87,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="{{ url('admin/monthlyreport') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>Monthly Report</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="{{ url('admin/yearlyreport') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Yearly report</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
@@ -160,8 +123,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> --}}
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
@@ -189,50 +152,26 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/requests') }}" class="nav-link">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Requests
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/examples/invoice.html" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Invoice</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Login</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/register.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Register</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/lockscreen.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-            </ul>
+            </ul> --}}
           </li>
 
-        
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+          
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
